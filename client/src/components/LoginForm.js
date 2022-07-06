@@ -32,3 +32,5 @@ const LoginForm = () => {
 
 // Return Form information here
 return (<></>)
+
+// Export default LoginForm
