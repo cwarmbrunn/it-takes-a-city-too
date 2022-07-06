@@ -3,7 +3,7 @@ import React, { useState } from "React";
 // Not sure if we have the react-router-dom installed?
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
-import SignUpForm from "./SignupForm";
+import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 
 // Import Auth
@@ -16,3 +16,5 @@ const AppNavbar = () => {
   // Set up return details here!
   <></>;
 };
+
+export default AppNavbar;
