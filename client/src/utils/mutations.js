@@ -1,4 +1,4 @@
-//TODO: Kaijam
+//TODO: KAJIAM
 
 // Import GQL from Apollo
 
