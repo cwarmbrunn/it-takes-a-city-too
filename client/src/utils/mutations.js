@@ -1,6 +1,6 @@
 //TODO: KAJIAM
-
-// Import GQL from Apollo
+// Import GQL
+import { gql } from "@apollo/client";
 
 // Export LOGIN_USER
 
