@@ -35,10 +35,20 @@ const Header = () => {
               <Link to="/resources">Resources</Link>
             </>
           ) : (
-            <></>
+            <>
+              {/* If the user is not logged in - allow them to only see the following */}
+
+              {/* Enables the user to login with existing credentials*/}
+              <Link to="/login">Login</Link>
+              {/* Enables the user to sign up with new credentials */}
+              <Link to="/signup">Signup</Link>
+            </>
           )}
         </nav>
       </div>
     </header>
   );
 };
+
+// Export Header
+export default Header;
