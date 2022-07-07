@@ -35,12 +35,36 @@ const Signup = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    try{
-        const {data} = await addUser({variables: {...formState},});
-Auth.login(data.addUser.token)} catch(e){
-    console.log(e)
-}
+    try {
+      const { data } = await addUser({ variables: { ...formState } });
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
   };
+  return (
+    <main className="flex-row justify-center mb-4">
+      <div className="col-12 col-md-6">
+        <div className="card">
+          <h4 className="card-header">Sign Up</h4>
+          <div className="card-body">
+            <form onSubmit={handleFormSubmit}>
+              {/* Form Input - Username */}
+              <input
+                className="form-input"
+                placeholder="Your username"
+                name="username"
+                type="username"
+                id="username"
+                value={formState.username}
+                onChange={handleChange}
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
 };
 
 export default Signup;
