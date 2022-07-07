@@ -1,23 +1,40 @@
-import logo from "./logo.svg";
-import "./App.css";
+// Import React
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello World!</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// Import Router, Routes, and Route
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-export default App;
+// Import ApolloClient, InMemoryCache, and ApolloProvider
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+
+// Import setContext
+import { setContext } from "@apollo/client/link/context";
+
+// COMPONENTS START //
+
+// Import Header
+import Header from "./components/Header";
+
+// Import Footer
+import Footer from "./components/Footer";
+
+// COMPONENTS END //
+
+// PAGES START //
+
+// Import Home
+import Home from "./pages/Home";
+
+// Import Login
+import Login from "./pages/Login";
+
+// Import Signup
+import Signup from "./pages/Signup";
+
+// Import Profile
+import Profile from "./pages/Profile";
+
+// Import Resource
+import Resource from "./pages/Resource";
+
+// PAGES END //

@@ -6,6 +6,6 @@ import { Form, Button, Alert } from "react-bootstrap";
 // Import Auth
 
 // Set up signup form!
-const SignupForm = () => {};
+const Signup = () => {};
 
-export default SignupForm;
+export default Signup;
