@@ -5,7 +5,12 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Import ApolloClient, InMemoryCache, and ApolloProvider
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from "@apollo/client";
 
 // Import setContext
 import { setContext } from "@apollo/client/link/context";
@@ -35,6 +40,50 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 
 // Import Resource
-import Resource from "./pages/Resource";
+import Resource from "./pages/Resources";
 
 // PAGES END //
+
+// Set up HTTP Link
+const httpLink = createHttpLink({
+  uri: "/graphql",
+});
+
+// Set up authLink
+const authLink = setContext((_, { headers }) => {
+  // Set up token
+  const token = localStorage.getItem("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
+
+// Set up client
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
+function App() {
+  return (
+    <ApolloProvider client={client}>
+      <Router>
+        <div className="flex-column justify-flex-start min-100-vh">
+          <Header />
+          <div className="container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/resources" element={<Resources />} />
+            </Routes>
+          </div>
+        </div>
+      </Router>
+    </ApolloProvider>
+  );
+}

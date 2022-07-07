@@ -1,11 +1,25 @@
+// Import React
 import React, { ueState } from "React";
-import { Form, Button, Alert } from "react-bootstrap";
 
-// Import Mutations
+// Import Mutation
+import { useMutation } from "@apollo/client";
+
 // Import ADD_USER
-// Import Auth
+import { ADD_USER } from "../utils/mutations";
 
-// Set up signup form!
-const Signup = () => {};
+// Import Auth
+import Auth from "../utils/auth";
+
+// Set up Signup form
+const Signup = () => {
+  // Set up formState to add a user
+  const [formState, setFormState] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+  // Use the mutation to add a user
+  const [addUser, { error }] = useMutation(ADD_USER);
+};
 
 export default Signup;
