@@ -11,8 +11,34 @@ const Header = () => {
     event.preventDefault();
     Auth.logout();
   };
+  // Set up HTML content for Header
+  return (
+    <header className="bg-secondary mb-4 py-2 flex-row align-center">
+      <div className="container flex-row justify-space-between-lg justify-center align-center">
+        <Link to="/">
+          <h1> It Takes a City Too</h1>
+        </Link>
+        <nav className="text-center">
+          {/* Set up functionality if user is logged in */}
+          {Auth.loggedIn() ? (
+            <>
+              {/* Set up navigation bar items*/}
 
+              {/* Enables user to go to their profile  */}
+              <Link to="/profile">Me</Link>
 
-
-  
+              {/* Allows the user to logout  */}
+              <a href="/" onClick={logout}>
+                Logout
+              </a>
+              {/* Enables user to view the resources page */}
+              <Link to="/resources">Resources</Link>
+            </>
+          ) : (
+            <></>
+          )}
+        </nav>
+      </div>
+    </header>
+  );
 };
