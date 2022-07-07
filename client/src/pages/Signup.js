@@ -70,12 +70,26 @@ const Signup = () => {
                 onChange={handleChange}
               />
               {/* Form Input - Password */}
+              <input
+                className="form-input"
+                placeholder="******"
+                name="password"
+                type="password"
+                id="password"
+                value={formState.password}
+                onChange={handleChange}
+              />
+              {/* Submit User Information Button */}
+              <button className="btn d-block w-100" type="submit">
+                Submit
+              </button>
             </form>
+            {error && <div>Signup failed!</div>}
           </div>
         </div>
       </div>
     </main>
   );
 };
-
+// Export Signup
 export default Signup;
