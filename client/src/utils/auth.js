@@ -26,18 +26,26 @@ class AuthService {
       return false;
     }
   }
+  getToken() {
+    // Retrieves the user token from localStorage
+    return localStorage.getItem("id_token");
+  }
+
+  login(idToken) {
+    // Saves the user token to localStorage
+    localStorage.setItem("id_token", idToken);
+
+    window.location.assign("/");
+  }
+
+  // Set up logout
+  logout() {
+    // Clear user token and profile data from localStorage
+    localStorage.removeItem("id_token");
+    // This will reload the page and reset the state of the application
+    window.location.assign("/");
+  }
 }
 
-// Create a new class to set up a user
-
-// Check if a user is logged in
-
-// Check if token is expired
-
-// Retrieve the user token from localStorage
-
-// Saves user token to localStorage
-
-// Clear user token and profile data from localStorage
-
-// Export default new AuthService()
+// Export AuthService()
+export default new AuthService();
