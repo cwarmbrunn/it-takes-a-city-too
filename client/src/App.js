@@ -82,8 +82,12 @@ function App() {
               <Route path="/resources" element={<Resources />} />
             </Routes>
           </div>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>
   );
 }
+
+// Export App
+export default App;
