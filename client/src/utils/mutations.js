@@ -1,4 +1,4 @@
-//TODO: KAJIAM
+//TODO: KAIJAM
 // Import GQL
 import { gql } from "@apollo/client";
 

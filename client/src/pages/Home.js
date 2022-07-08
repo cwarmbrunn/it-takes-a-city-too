@@ -11,7 +11,7 @@ import Header from "../components/Header";
 
 // Import useQuery
 import { useQuery } from "@apollo/client";
-// TODO: KAJIAM - Import the queries we'll need from utils/queries
+// TODO: KAIJAM - Import the queries we'll need from utils/queries
 
 // Set up Home function
 const Home = () => {
