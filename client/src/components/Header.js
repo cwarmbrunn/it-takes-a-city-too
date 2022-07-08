@@ -42,6 +42,10 @@ const Header = () => {
               <Link to="/login">Login</Link>
               {/* Enables the user to sign up with new credentials */}
               <Link to="/signup">Signup</Link>
+              {/* Donate Button */}
+              <a className="donateBtn" href="https://buy.stripe.com/test_4gw2987Y5aldare288" >
+                Donate
+              </a>
             </>
           )}
         </nav>
