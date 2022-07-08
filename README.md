@@ -6,8 +6,6 @@ It Takes A City Too
 
 **Project Description/Summary:**
 
-<!-- NEED TO UPDATE -->
-
 Enhancing our "It Takes a City" app with some additional features - the upgraded version includes React, JWT authentication, allows the user to view posts by specific city, a resource page, and uses MongoDB and Mongoose ODM for the database.
 
 ---
