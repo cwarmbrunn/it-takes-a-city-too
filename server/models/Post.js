@@ -4,7 +4,7 @@ const dateFormat = require('../utils/dateFormat');
 
 const postSchema = new Schema(
   {
-    thoughtText: {
+    postText: {
       type: String,
       required: 'You need to leave a thought!',
       minlength: 1,
@@ -28,10 +28,10 @@ const postSchema = new Schema(
   }
 );
 
-thoughtSchema.virtual('reactionCount').get(function() {
+postSchema.virtual('reactionCount').get(function() {
   return this.reactions.length;
 });
 
-const Post = model('Thought', thoughtSchema);
+const Post = model('Post', postSchema);
 
 module.exports = Post;
