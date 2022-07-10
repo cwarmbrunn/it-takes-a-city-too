@@ -73,13 +73,13 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    addComment: async (parent, { postId, commentBody }, context) => {
+    addReaction: async (parent, { postId, reactionBody }, context) => {
       if (context.user) {
         const updatedPost = await Post.findOneAndUpdate(
           { _id: postId },
           {
             $push: {
-              comments: { commentBody, username: context.user.username },
+              reactions: { reactionBody, username: context.user.username },
             },
           },
           { new: true, runValidators: true }

@@ -22,7 +22,7 @@ const Profile = (props) => {
 const user = data?.me || data?.me || {};
 
 // Navigate to personal profile page if the username is yours and accurate
-if (Auth.loggedIn() && Auth.getProfile().data.username === useParam) {
+if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
   return <Navigate to="/profile:username" />;
 }
 
