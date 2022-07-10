@@ -19,7 +19,7 @@ const postSchema = new Schema(
       type: String,
       required: true,
     },
-    tags: [Tag],
+    tags: [String],
     location: {
       type: String,
       Required: true,
