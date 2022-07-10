@@ -16,12 +16,12 @@ const Profile = (props) => {
   const { username: userParam } = useParams();
 
   // TODO - Queries to go here?
-};
+//  };
 
 // Set up constant user
 const user = data?.me || data?.me || {};
 
-// Navigate to personal profile page if the username is yours and accurate
+// navigate to personal profile page if username is yours
 if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
   return <Navigate to="/profile:username" />;
 }
@@ -49,5 +49,6 @@ const handleClick = async () => {
     console.error(e);
   }
 };
+}
 // Export Profile
 export default Profile;
