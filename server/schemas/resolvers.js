@@ -27,6 +27,9 @@ const resolvers = {
         .select("-__v -password")
         .populate("posts");
     },
+    allposts: async () => {
+      return Post.find().sort({ createdAt: -1 });
+    },
     posts: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Post.find(params).sort({ createdAt: -1 });
