@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 const commentSchema = require("./Comment.js");
 const dateFormat = require("../utils/dateFormat");
-const tagSchema = require("./Tag.js");
+const Tag = require("./Tag.js");
 const postSchema = new Schema(
   {
     postText: {
@@ -19,7 +19,7 @@ const postSchema = new Schema(
       type: String,
       required: true,
     },
-    tags: [tagSchema],
+    tags: [Tag],
     location: {
       type: String,
       Required: true,
