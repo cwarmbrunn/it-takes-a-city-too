@@ -49,5 +49,6 @@ const Profile = (props) => {
     }
   };
 };
+
 // Export Profile
 export default Profile;
