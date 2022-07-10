@@ -25,6 +25,30 @@ export const ADD_USER = gql`
   }
 `;
 
+export const ADD_POST = gql`
+  mutation addPost($postText: String!) {
+    addPost(postText: $postText) {
+      postText
+      username
+    }
+  }
+`;
+
+export const ADD_COMMENT = gql`
+  mutation addComment($postId: ID!, $commentBody: String!) {
+    addComment(postId: $postId, commentBody: $commentBody) {
+      _id
+      postText
+      username
+      comments {
+        _id
+        commentBody
+        username
+      }
+    }
+  }
+`;
+
 // Export UPDATE_RESOURCE
 
 // From Christina //
