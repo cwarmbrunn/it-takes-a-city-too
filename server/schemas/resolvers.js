@@ -20,7 +20,7 @@ const resolvers = {
     },
     // get all users
     users: async () => {
-      return User.find()a
+      return User.find()
         .select('-__v -password')
         .populate('posts')
     },
