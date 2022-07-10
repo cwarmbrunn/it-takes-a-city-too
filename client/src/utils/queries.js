@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_ALL_POSTS = gql`
   query {
@@ -69,5 +69,20 @@ export const QUERY_RESOURCES = gql`
     }
   }
 `;
+// kaijam please check these last two queries
 
-export 
+export const QUERY_TAGS = gql`
+  query {
+    Tag {
+      tagBody
+    }
+  }
+`;
+
+export const QUERY_ALL_LOCATIONS = gql`
+  query {
+    Post {
+      location
+    }
+  }
+`;
