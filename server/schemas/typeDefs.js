@@ -25,6 +25,10 @@ const typeDefs = gql`
     createdAt: String
     username: String
   }
+  type Tag {
+    _id: ID
+    tagBody: String
+  }
   type Query {
     me: User
     users: [User]
