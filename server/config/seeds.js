@@ -4,7 +4,7 @@ const { User, Post, Tag } = require("../models");
 db.once("open", async () => {
   await Tag.deleteMany();
 
-  const categories = await Category.insertMany([
+  const tags = await Tag.insertMany([
     { tagBody: "Shelter" },
     { tagBody: "Food" },
     { tagBody: "Clothing" },
