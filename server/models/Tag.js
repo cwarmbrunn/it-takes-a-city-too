@@ -1,7 +1,6 @@
 const { Schema } = require("mongoose");
-const dateFormat = require("../utils/dateFormat");
 
-const Tag = new Schema(
+const tagSchema = new Schema(
   {
     tagBody: {
       type: String,
@@ -15,5 +14,5 @@ const Tag = new Schema(
     },
   }
 );
-
+const Tag = model("Tag", tagSchema);
 module.exports = Tag;
