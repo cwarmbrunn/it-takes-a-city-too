@@ -9,7 +9,8 @@ const typeDefs = gql`
     email: String
     friendCount: Int
     posts: [Post]
-    friends: [User]
+    tags: [Tag]
+    location: String
   }
   type Post {
     _id: ID
