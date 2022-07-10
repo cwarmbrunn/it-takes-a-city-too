@@ -79,7 +79,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/resources" element={<Resources />} />
+              {/* <Route path="/resources" element={<Resources />} /> */}
             </Routes>
           </div>
           <Footer />
