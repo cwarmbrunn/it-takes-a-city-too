@@ -1,44 +1,29 @@
+const userSeeds = require('./userSeed.json');
+const postSeeds = require('./postSeed.json');
 const db = require("./connection");
 const { User, Post } = require("../models");
 
 db.once("open", async () => {
-  await User.deleteMany({});
+  try {
+    // drop tables
+    await Post.deleteMany({});
+    await User.deleteMany({});
 
-  await User.create(
-    [
-      {
-        "username" : "Christina",
-        "email" : "christina@ittakesacity.org",
-        "password" : "test1234", 
-        "posts" : []
-      },
-      {
-        "username" : "Madison",
-        "email" : "madison@ittakesacity.org",
-        "password" : "test1234", 
-        "posts" : []
-      },
-      {
-        "username" : "Kaijam",
-        "email" : "kaijam@ittakesacity.org",
-        "password" : "test1234", 
-        "posts" : []
-      },
-      {
-        "username" : "Konner",
-        "email" : "konner@ittakesacity.org",
-        "password" : "test1234", 
-        "posts" : []
-      },
-      {
-        "username" : "Matt",
-        "email" : "matt@ittakesacity.org",
-        "password" : "test1234", 
-        "posts" : []
-     }
-    ]
-  );
+    // seed tables
+    await User.create(userSeeds);
 
-  console.log("Users Seeded");
-
+    for (let i = 0; i < postSeeds.length; i++) {
+      const post = await Post.create(postSeeds[i]);
+      console.log(post);
+      const user = await User.findOneAndUpdate(
+        { username: post.username },
+        { $push: { posts: post._id } },
+      );   
+    }
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+  console.log('Users & Posts Seeded!');
+  process.exit(0);
 });

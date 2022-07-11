@@ -1,0 +1,45 @@
+[
+  {
+    "postText": "A great place for a nice hot meal for those in need",
+    "username": "Christina",
+    "locationName": "Shelter A",
+    "address": "111 Alphabet Street",
+    "secondary": "",
+    "city": "Detroit",
+    "state": "Michigan",
+    "zipCode": "48201",
+    "tags": [
+      "Food",
+      "Employment"
+    ],
+    "comments": [
+      {
+        "commentBody": "They also help with finding jobs on Tuesdays and Thursdays.",
+        "username": "Kaijam"
+      },
+      {
+        "commentBody": "Feel free to come and eat and volunteer.",
+        "username": "Konner"
+      }
+    ]
+  },
+  {
+    "postText": "A clean place to stay where everyone pitches in.",
+    "username": "Madison",
+    "locationName": "Shelter B",
+    "address": "222 Alphabet Street",
+    "secondary": "",
+    "city": "Illinois",
+    "state": "Chicago",
+    "zipCode": "60131",
+    "tags": [
+      "Shelter"
+    ],
+    "comments": [
+      {
+        "commentBody": "Yes, a very friendly community. Keep it clean!",
+        "username": "Matt"
+      }
+    ]
+  }
+]
