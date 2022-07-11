@@ -62,6 +62,10 @@ export const ADD_POST = gql`
 `;
 
 // Export UPDATE_POST
+export const UPDATE_POST = gql`
+mutation updatePost($id: ID!){
+  updatePost(id: $id){}
+}`;
 
 // Export DELETE_POST
 export const DELETE_POST = gql`
@@ -94,6 +98,10 @@ export const ADD_COMMENT = gql`
   }
 `;
 // Export UPDATE_COMMENT
+export const UPDATE_COMMENT = gql`
+mutation updateComment($id: ID!){
+  updateComment(id: $id){}
+}`;
 
 // Export DELETE_COMMENT
 export const DELETE_COMMENT = gql`
