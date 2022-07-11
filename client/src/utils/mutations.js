@@ -1,4 +1,6 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
+
+// From Christina: Requirements say we need to retrieve, update, add, and delete data
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
@@ -24,9 +26,28 @@ export const ADD_USER = gql`
   }
 `;
 
+// From Christina: Don't we want to add a unique ID to each post here?
 export const ADD_POST = gql`
-  mutation addPost($postText: String!, $locationName: String!, $address: String!, $secondary: String, $city: String!, $state: String!, $zipCode: String!, $tags: [String!]) {
-    addPost(postText: $postText, locationName: $locationName, address: $address, secondary: $secondary, city: $city, state: $state, zipCode: $zipCode, tags: $tags) {
+  mutation addPost(
+    $postText: String!
+    $locationName: String!
+    $address: String!
+    $secondary: String
+    $city: String!
+    $state: String!
+    $zipCode: String!
+    $tags: [String!]
+  ) {
+    addPost(
+      postText: $postText
+      locationName: $locationName
+      address: $address
+      secondary: $secondary
+      city: $city
+      state: $state
+      zipCode: $zipCode
+      tags: $tags
+    ) {
       postText
       username
       locationName
@@ -39,6 +60,18 @@ export const ADD_POST = gql`
     }
   }
 `;
+
+// Export UPDATE_POST
+
+// Export DELETE_POST
+// Not sure if this is right - psuedocoded this out to try and create a delete option
+// export const DELETE_POST = gql`
+//   mutation deletePost($id: ID!) {
+//     deletePost(id: $id) {
+//       _id
+//     }
+//   }
+// `;
 
 export const ADD_COMMENT = gql`
   mutation addComment($postId: ID!, $commentBody: String!) {
@@ -61,14 +94,6 @@ export const ADD_COMMENT = gql`
     }
   }
 `;
+// Export UPDATE_COMMENT
 
-// Export UPDATE_RESOURCE
-
-// From Christina //
-// Not sure if we need this one?
-
-// Requirements say we need to retrieve, update, add, and delete data
-
-// Export SAVE_RESOURCE
-
-// Export DELETE_RESOURCE
+// Export DELETE_COMMENT
