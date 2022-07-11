@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 const commentSchema = require("./Comment.js");
 const dateFormat = require("../utils/dateFormat");
-const Tag = require("./Tag.js");
+
 const postSchema = new Schema(
   {
     postText: {
@@ -19,10 +19,33 @@ const postSchema = new Schema(
       type: String,
       required: true,
     },
-    tags: [Tag],
-    location: {
+    tags: [ {
       type: String,
-      Required: true,
+      enum: ["Shelter" , "Food", "Clothing", "Employment", "Legal"],
+      required: true,
+    } ],
+    locationName: {
+      type: String,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
+    secondary: {
+      type: String,
+    },
+    city: {
+      type: String,
+      required: true,
+    },
+    state: {
+      type: String,
+      required: true,
+    },
+    zipCode: {
+      type: String,
+      required: true,
     },
     comments: [commentSchema],
   },
@@ -35,6 +58,10 @@ const postSchema = new Schema(
 
 postSchema.virtual("commentCount").get(function () {
   return this.comments.length;
+});
+
+postSchema.virtual('fullAddress').get(function() {
+  return `${this.city}, ${this.state} ${this.zipCode}`;
 });
 
 const Post = model("Post", postSchema);

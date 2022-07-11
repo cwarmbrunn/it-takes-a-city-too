@@ -16,29 +16,30 @@ const Profile = (props) => {
   const { username: userParam } = useParams();
 
   // TODO - Queries to go here?
+  //  };
 
   // Set up constant user
-  const user = data?.me || data?.me || {};
+  // const user = data?.me || data?.me || {};
 
-  // Navigate to personal profile page if the username is yours and accurate
+  // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/profile:username" />;
   }
 
   // If loading, display the following content
-  if (loading) {
-    return <div>Loading...hang tight!</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading...hang tight!</div>;
+  // }
 
-  // If user is not logged in, display the following content
-  if (!user?.username) {
-    return (
-      <h2>
-        You need to be logged in to see this! Use the navigation links above to
-        sign up or log in!
-      </h2>
-    );
-  }
+  // // If user is not logged in, display the following content
+  // if (!user?.username) {
+  //   return (
+  //     <h2>
+  //       You need to be logged in to see this! Use the navigation links above to
+  //       sign up or log in!
+  //     </h2>
+  //   );
+  // }
 
   const handleClick = async () => {
     try {
@@ -49,6 +50,5 @@ const Profile = (props) => {
     }
   };
 };
-
 // Export Profile
 export default Profile;

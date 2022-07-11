@@ -1,16 +1,29 @@
+const userSeeds = require('./userSeed.json');
+const postSeeds = require('./postSeed.json');
 const db = require("./connection");
-const { User, Post, Tag } = require("../models");
+const { User, Post } = require("../models");
 
 db.once("open", async () => {
-  await Tag.deleteMany();
+  try {
+    // drop tables
+    await Post.deleteMany({});
+    await User.deleteMany({});
 
-  const categories = await Category.insertMany([
-    { tagBody: "Shelter" },
-    { tagBody: "Food" },
-    { tagBody: "Clothing" },
-    { tagBody: "Employment" },
-    { tagBody: "Legal" },
-  ]);
+    // seed tables
+    await User.create(userSeeds);
 
-  console.log("tags seeded");
+    for (let i = 0; i < postSeeds.length; i++) {
+      const post = await Post.create(postSeeds[i]);
+      console.log(post);
+      const user = await User.findOneAndUpdate(
+        { username: post.username },
+        { $push: { posts: post._id } },
+      );   
+    }
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+  console.log('Users & Posts Seeded!');
+  process.exit(0);
 });

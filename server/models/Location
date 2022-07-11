@@ -1,0 +1,39 @@
+const { Schema } = require("mongoose");
+const dateFormat = require("../utils/dateFormat");
+
+const locationSchema = new Schema(
+  {
+    locationName: {
+      type: String,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
+    secondary: {
+      type: String,
+    },
+    city: {
+      type: String,
+      required: true,
+    },
+    state: {
+      type: String,
+      required: true,
+    },
+    zipCode: {
+      type: String,
+      required: true,
+    },
+  },
+  {
+    toJSON: {
+      getters: true,
+    },
+  }
+);
+
+locationSchema.virtual('fullAddress').get(function() {return `${this.city}, ${this.state} ${this.zipCode}`});
+
+module.exports = locationSchema;
