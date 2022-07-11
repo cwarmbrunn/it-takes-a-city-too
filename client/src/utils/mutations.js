@@ -64,14 +64,13 @@ export const ADD_POST = gql`
 // Export UPDATE_POST
 
 // Export DELETE_POST
-// Not sure if this is right - psuedocoded this out to try and create a delete option
-// export const DELETE_POST = gql`
-//   mutation deletePost($id: ID!) {
-//     deletePost(id: $id) {
-//       _id
-//     }
-//   }
-// `;
+export const DELETE_POST = gql`
+  mutation deletePost($id: ID!) {
+    deletePost(id: $id) {
+      _id
+    }
+  }
+`;
 
 export const ADD_COMMENT = gql`
   mutation addComment($postId: ID!, $commentBody: String!) {
@@ -97,3 +96,10 @@ export const ADD_COMMENT = gql`
 // Export UPDATE_COMMENT
 
 // Export DELETE_COMMENT
+export const DELETE_COMMENT = gql`
+  mutation deleteComment($id: ID!) {
+    deleteComment(id: $id) {
+      _id
+    }
+  }
+`;
