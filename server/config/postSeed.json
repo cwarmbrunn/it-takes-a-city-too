@@ -29,8 +29,8 @@
     "locationName": "Shelter B",
     "address": "222 Alphabet Street",
     "secondary": "",
-    "city": "Illinois",
-    "state": "Chicago",
+    "city": "Chicago",
+    "state": "Illinois",
     "zipCode": "60131",
     "tags": [
       "Shelter"

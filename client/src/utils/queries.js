@@ -6,6 +6,10 @@ export const QUERY_ALL_POSTS = gql`
       _id
       postText
       username
+      locationName
+      address
+      secondary
+      fullAddress
       comments {
         _id
         commentBody
@@ -25,6 +29,11 @@ export const QUERY_ALL_USERS = gql`
         _id
         postText
         username
+        locationName
+        address
+        secondary
+        fullAddress
+        tags
         comments {
           _id
           commentBody
@@ -45,6 +54,11 @@ export const QUERY_ONE_USER = gql`
         _id
         postText
         username
+        locationName
+        address
+        secondary
+        fullAddress
+        tags
         comments {
           _id
           commentBody
@@ -56,33 +70,31 @@ export const QUERY_ONE_USER = gql`
 `;
 
 export const QUERY_RESOURCES = gql`
-  query resources($username: String) {
-    resources(username: $username) {
-      _id
-      username
-      replyCount
-      replies {
-        _id
-        username
-        replyBody
-      }
-    }
+query {
+  allposts {
+    locationName
+    address
+    secondary
+    fullAddress
+    tags
   }
+}
 `;
 // kaijam please check these last two queries
 
 export const QUERY_TAGS = gql`
-  query {
-    Tag {
-      tagBody
-    }
+query {
+  allposts {
+    tags
   }
+}
 `;
 
 export const QUERY_ALL_LOCATIONS = gql`
-  query {
-    Post {
-      location
-    }
+query {
+  allposts {
+    city
+    state
   }
+}
 `;
