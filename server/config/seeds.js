@@ -1,21 +1,10 @@
 const db = require("./connection");
-const { User, Post, Tag } = require("../models");
+const { User, Post } = require("../models");
 
 db.once("open", async () => {
-  await Tag.deleteMany();
   await User.deleteMany({});
 
-  const tags = await Tag.insertMany([
-    { tagBody: "Shelter" },
-    { tagBody: "Food" },
-    { tagBody: "Clothing" },
-    { tagBody: "Employment" },
-    { tagBody: "Legal" },
-  ]);
-
-  console.log("tags seeded");
-
-  await User.create([
+  await User.create(
     [
       {
         "username" : "Christina",
@@ -48,8 +37,8 @@ db.once("open", async () => {
         "posts" : []
      }
     ]
-  ]);
+  );
 
-  console.log("tags seeded");
+  console.log("Users Seeded");
 
 });
