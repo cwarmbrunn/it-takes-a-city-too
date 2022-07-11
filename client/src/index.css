@@ -7,10 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* HEADER CSS  */
 h1{
-  color:tomato;
+  font-size: large;
 }
 
+/* Wanted to set up header hover - this way a user can see it's a link  */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

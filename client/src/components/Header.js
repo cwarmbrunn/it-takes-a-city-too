@@ -15,10 +15,13 @@ const Header = () => {
   return (
     <header className="bg-secondary mb-4 py-2 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <Link to="/">
-          <h1 className="text-decoration-none"> It Takes a City Too</h1>
+        <Link to="/" className="text-decoration-none">
+          <h1 className="text-light flex-row align-center">
+            {" "}
+            It Takes a City Too 🌆
+          </h1>
         </Link>
-        <nav className="text-center">
+        <nav className="flex items-center justify-between">
           {/* Set up functionality if user is logged in */}
           {Auth.loggedIn() ? (
             <>

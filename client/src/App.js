@@ -23,12 +23,23 @@ import Header from "./components/Header";
 // Import Footer
 import Footer from "./components/Footer";
 
+// COMPONENTS END //
+
+// PAGE START //
+
+import Home from "./pages/Home";
+
+// PAGE END //
+
+// Set up App function
 function App() {
   return (
     <Router>
       <div className="flex-column justify-flex-start min-100-vh">
         <Header />
-        <div className="container"></div>
+        <div className="container">
+          <Home />
+        </div>
         <Footer />
       </div>
     </Router>
