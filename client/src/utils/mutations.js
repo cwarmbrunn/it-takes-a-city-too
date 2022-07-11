@@ -1,7 +1,9 @@
+// Import gql
 import { gql } from "@apollo/client";
 
 // From Christina: Requirements say we need to retrieve, update, add, and delete data
 
+// Export LOGIN_USER
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
@@ -14,6 +16,7 @@ export const LOGIN_USER = gql`
   }
 `;
 
+// Export ADD_USER
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
@@ -25,7 +28,7 @@ export const ADD_USER = gql`
     }
   }
 `;
-
+// Export ADD_POST
 // From Christina: Don't we want to add a unique ID to each post here?
 export const ADD_POST = gql`
   mutation addPost(
@@ -63,9 +66,30 @@ export const ADD_POST = gql`
 
 // Export UPDATE_POST
 export const UPDATE_POST = gql`
-mutation updatePost($id: ID!){
-  updatePost(id: $id){}
-}`;
+  mutation updatePost($id: ID!) {
+    updatePost(id: $id) {
+      updatePost(
+        postText: $postText
+        locationName: $locationName
+        address: $address
+        secondary: $secondary
+        city: $city
+        state: $state
+        zipCode: $zipCode
+        tags: $tags
+      ) {
+        postText
+        username
+        locationName
+        address
+        secondary
+        city
+        state
+        zipCode
+        tags
+      }
+    }
+`;
 
 // Export DELETE_POST
 export const DELETE_POST = gql`
@@ -76,6 +100,7 @@ export const DELETE_POST = gql`
   }
 `;
 
+// Export ADD COMMENT
 export const ADD_COMMENT = gql`
   mutation addComment($postId: ID!, $commentBody: String!) {
     addComment(postId: $postId, commentBody: $commentBody) {
@@ -98,9 +123,27 @@ export const ADD_COMMENT = gql`
   }
 `;
 // Export UPDATE_COMMENT
+// From Christina - would appreciate any additional support on this
+// Not sure if I did this properly
 export const UPDATE_COMMENT = gql`
-mutation updateComment($id: ID!){
-  updateComment(id: $id){}
+mutation updateComment($postId: ID!, $commentBody){
+  updateComment(postId: $postId, commentBody: $commentBody){
+    _id
+      postText
+      username
+      locationName
+      address
+      secondary
+      city
+      state
+      zipCode
+      tags
+      comments {
+        _id
+        commentBody
+        username
+    }
+  }
 }`;
 
 // Export DELETE_COMMENT
