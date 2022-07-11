@@ -122,35 +122,4 @@ export const ADD_COMMENT = gql`
     }
   }
 `;
-// Export UPDATE_COMMENT
-// From Christina - would appreciate any additional support on this
-// Not sure if I did this properly
-export const UPDATE_COMMENT = gql`
-mutation updateComment($postId: ID!, $commentBody){
-  updateComment(postId: $postId, commentBody: $commentBody){
-    _id
-      postText
-      username
-      locationName
-      address
-      secondary
-      city
-      state
-      zipCode
-      tags
-      comments {
-        _id
-        commentBody
-        username
-    }
-  }
-}`;
 
-// Export DELETE_COMMENT
-export const DELETE_COMMENT = gql`
-  mutation deleteComment($id: ID!) {
-    deleteComment(id: $id) {
-      _id
-    }
-  }
-`;
