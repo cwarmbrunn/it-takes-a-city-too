@@ -14,7 +14,6 @@ db.once("open", async () => {
 
     for (let i = 0; i < postSeeds.length; i++) {
       const post = await Post.create(postSeeds[i]);
-      console.log(post);
       const user = await User.findOneAndUpdate(
         { username: post.username },
         { $push: { posts: post._id } },
