@@ -20,6 +20,7 @@ const typeDefs = gql`
     city: String
     state: String
     zipCode: String
+    fullAddress: String
     tags: [String]
     commentCount: Int
     comments: [Comment]
