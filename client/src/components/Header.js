@@ -35,13 +35,13 @@ const Header = () => {
             <>
               {/* If the user is not logged in - allow them to only see the following */}
               <nav className="navbar navbar-expand-lg">
-                <a className="text-light text-decoration-none" href="/">
+                <a className="text-decoration-none" href="/">
                   It Takes A City Too
                 </a>
                 <ul className="navbar-nav">
-                  <li className="nav-item active">
+                  <li className="nav-item">
                     <a
-                      className="nav-link text-decoration-none text-light"
+                      className="nav-link text-decoration-none"
                       href="/login"
                     >
                       {/* Enables the user to login with existing credentials */}
@@ -49,9 +49,9 @@ const Header = () => {
                     </a>
                   </li>
                   {/* Enables the user to sign up with existing credentials */}
-                  <li className="nav-item active">
+                  <li className="nav-item">
                     <a
-                      className="nav-link text-decoration-none text-light"
+                      className="nav-link text-decoration-none "
                       href="/signup"
                     >
                       Signup
