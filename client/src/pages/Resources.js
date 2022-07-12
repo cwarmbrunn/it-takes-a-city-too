@@ -6,6 +6,6 @@ import React, { useState } from "react";
 // Import Auth
 import auth from "../utils/auth";
 // Set up Resource page
-const Resource = () => {};
+const Resources = () => {};
 
-export default Resource;
+export default Resources;

@@ -21,15 +21,28 @@ const Header = () => {
             <>
               {/* Set up navigation bar items*/}
 
-              {/* Enables user to go to their profile  */}
-              <Link to="/profile">Me</Link>
-
-              {/* Allows the user to logout  */}
-              <a href="/" onClick={logout}>
-                Logout
-              </a>
-              {/* Enables user to view the resources page */}
-              <Link to="/resources">Resources</Link>
+              <nav className="navbar navbar-expand-lg">
+                <a className="text-decoration-none" href="/">
+                  It Takes A City Too
+                </a>
+                <ul className="navbar-nav">
+                  <li className="nav-item">
+                    <a className="nav-link text-decoration-none" href="/logout">
+                      {/* Enables the user to logout from their existing session */}
+                      Logout
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a
+                      className="nav-link text-decoration-none"
+                      href="/resources"
+                    >
+                      {/* Enables the user to view the resources page */}
+                      Resources{" "}
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </>
           ) : (
             <>
@@ -40,10 +53,7 @@ const Header = () => {
                 </a>
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                    <a
-                      className="nav-link text-decoration-none"
-                      href="/login"
-                    >
+                    <a className="nav-link text-decoration-none" href="/login">
                       {/* Enables the user to login with existing credentials */}
                       Login
                     </a>
@@ -55,6 +65,15 @@ const Header = () => {
                       href="/signup"
                     >
                       Signup
+                    </a>
+                  </li>
+                  {/* Allows the user to see the resources page */}
+                  <li className="nav-item">
+                    <a
+                      className="nav-link text-decoration-none"
+                      href="/resources"
+                    >
+                      Resources
                     </a>
                   </li>
                 </ul>
