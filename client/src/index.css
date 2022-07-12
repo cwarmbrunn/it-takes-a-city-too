@@ -11,6 +11,9 @@ body {
 h1{
   font-size: large;
 }
+ nav:hover{
+  color:green;
+ }
 
 /* Wanted to set up header hover - this way a user can see it's a link  */
 code {
