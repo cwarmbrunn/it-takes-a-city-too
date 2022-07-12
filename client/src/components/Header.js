@@ -27,7 +27,6 @@ const Header = () => {
                   <a className="nav-link text-decoration-none" href="/">
                     It Takes A City Too
                   </a>
-
                   {/* Logout Option */}
                   <li className="nav-item">
                     <a className="nav-link text-decoration-none" href="/logout">
@@ -45,12 +44,21 @@ const Header = () => {
                       Resources{" "}
                     </a>
                   </li>
+            </li>
+                 <li className="nav-item">
+                    <a className="donateBtn" href="https://buy.stripe.com/test_4gw2987Y5aldare288" >
+                Donate
+              </a>
+                   </li>
                 </ul>
               </nav>
+
             </>
+            
           ) : (
             <>
               {/* If the user is not logged in - allow them to only see the following */}
+
               <nav className="navbar navbar-expand-lg">
                 {/* Home Page */}
                 <a
@@ -87,8 +95,14 @@ const Header = () => {
                       Resources
                     </a>
                   </li>
+                 <li className="nav-item">
+                    <a className="donateBtn" href="https://buy.stripe.com/test_4gw2987Y5aldare288" >
+                Donate
+              </a>
+                   </li>
                 </ul>
               </nav>
+
             </>
           )}
         </nav>
