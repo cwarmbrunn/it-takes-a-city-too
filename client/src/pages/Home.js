@@ -18,47 +18,18 @@ const Home = () => {
     <main>
       <div className="flex-row justify-space-between">
         {loggedIn && <div className="col-12 mb-3">Hello [USERNAME HERE] </div>}
-
-        <div className="modal" tabIndex="-1" role="dialog">
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Welcome!</h5>
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-            </div>
-            <div className="modal-body">
-              <p>Hello World!</p>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" class="btn btn-primary">
-                Save Changes
-              </button>
-            </div>
-          </div>
+        <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
+          <h1 className="text-decoration-underline">About Us</h1>
+          <p className="text-xl">
+            We wanted to create a space folks to connect and share resources in
+            their city. Share a resource, leave a comment about one posted, and
+            remember: it takes a city!{" "}
+          </p>
         </div>
+        <div className="py-5 posts">{/* Posts to go here? */}</div>
       </div>
     </main>
   );
-  if (loggedIn != true) {
-    $(document).ready(function () {
-      $("#myModal").modal("show");
-    });
-  }
 };
 
 // Export Home
