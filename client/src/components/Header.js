@@ -33,7 +33,11 @@ const Header = () => {
               </a>
               {/* Enables user to view the resources page */}
               <Link to="/resources">Resources</Link>
+              <a className="donateBtn" href="https://buy.stripe.com/test_4gw2987Y5aldare288" >
+                Donate
+              </a>
             </>
+            
           ) : (
             <>
               {/* If the user is not logged in - allow them to only see the following */}
