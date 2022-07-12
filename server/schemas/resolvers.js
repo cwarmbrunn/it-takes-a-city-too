@@ -10,20 +10,28 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select("-__v -password")
-          .populate("posts")
-          .populate("friends");
+          .populate("posts");
 
         return userData;
       }
 
       throw new AuthenticationError("Not logged in");
     },
+    // get all users
+    users: async () => {
+      return User.find()
+        .select('-__v -password')
+        .populate('posts')
+    },
     // Get a user by username
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select("-__v -password")
-        .populate("friends")
         .populate("posts");
+    },
+    // get all posts
+    allposts: async () => {
+      return Post.find()
     },
     posts: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -37,7 +45,6 @@ const resolvers = {
     addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
-
       return { token, user };
     },
     login: async (parent, { email, password }) => {
@@ -52,6 +59,7 @@ const resolvers = {
       if (!correctPw) {
         throw new AuthenticationError("Incorrect credentials");
       }
+      const token = signToken(user);
       return { token, user };
     },
     addPost: async (parent, args, context) => {
@@ -90,19 +98,36 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
-    addFriend: async (parent, { friendId }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { friends: friendId } },
-          { new: true }
-        ).populate("friends");
 
-        return updatedUser;
+    updatePost: async (parent, args, context) => {
+      if (context.user) {
+        const { _id, ...postToUpdate } = args;
+        console.log(postToUpdate)
+        const updatedPost = await Post.findByIdAndUpdate(
+          { _id: _id }, postToUpdate, {new: true, runValidators: true } );
+
+        return updatedPost;
       }
 
       throw new AuthenticationError("You need to be logged in!");
     },
+
+    deletePost: async (parent, { _id }, context) => {
+      if (context.user) {
+        const post = await Post.findByIdAndDelete({ _id });
+
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $pull: { posts: post._id } },
+          { new: true }
+        );
+
+        return post;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
   },
 };
 
