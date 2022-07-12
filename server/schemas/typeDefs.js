@@ -49,6 +49,8 @@ const typeDefs = gql`
     addPost(postText: String!, locationName: String, address: String, secondary: String, city: String, state: String, zipCode: String, tags: [String]): Post
     addComment(postId: ID!, commentBody: String!): Post
     addFriend(friendId: ID!): User
+    updatePost(_id: ID!, postText: String, locationName: String, address: String, secondary: String, city: String, state: String, zipCode: String, tags: [String]): Post
+    deletePost(_id: ID!): Post
   }
   type Auth {
     token: ID!
