@@ -1,6 +1,8 @@
 // Import React
 import React from "react";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 // Import Router, Routes, and Route
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
