@@ -1,7 +1,6 @@
 // Import React
 import React from "react";
 
-
 // Import Auth
 import Auth from "../utils/auth";
 
@@ -44,17 +43,18 @@ const Header = () => {
                       Resources{" "}
                     </a>
                   </li>
-            </li>
-                 <li className="nav-item">
-                    <a className="donateBtn" href="https://buy.stripe.com/test_4gw2987Y5aldare288" >
-                Donate
-              </a>
-                   </li>
+                  {/* Donate Button */}
+                  <li className="nav-item">
+                    <a
+                      className="donateBtn nav-link text-decoration-none"
+                      href="https://buy.stripe.com/test_4gw2987Y5aldare288"
+                    >
+                      Donate
+                    </a>
+                  </li>
                 </ul>
               </nav>
-
             </>
-            
           ) : (
             <>
               {/* If the user is not logged in - allow them to only see the following */}
@@ -95,14 +95,18 @@ const Header = () => {
                       Resources
                     </a>
                   </li>
-                 <li className="nav-item">
-                    <a className="donateBtn" href="https://buy.stripe.com/test_4gw2987Y5aldare288" >
-                Donate
-              </a>
-                   </li>
+                  <li className="nav-item">
+                    <a
+                      className="donateBtn nav-link text-decoration-none"
+                      href="https://buy.stripe.com/test_4gw2987Y5aldare288"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Donate
+                    </a>
+                  </li>
                 </ul>
               </nav>
-
             </>
           )}
         </nav>
