@@ -29,7 +29,6 @@ export const ADD_USER = gql`
   }
 `;
 // Export ADD_POST
-// From Christina: Don't we want to add a unique ID to each post here?
 export const ADD_POST = gql`
   mutation addPost(
     $postText: String!
