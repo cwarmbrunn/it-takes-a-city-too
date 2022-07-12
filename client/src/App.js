@@ -25,67 +25,24 @@ import Footer from "./components/Footer";
 
 // COMPONENTS END //
 
-// PAGES START //
+// PAGE START //
 
-// Import Home
 import Home from "./pages/Home";
 
-// Import Login
-import Login from "./pages/Login";
+// PAGE END //
 
-// Import Signup
-import Signup from "./pages/Signup";
-
-// Import Profile
-import Profile from "./pages/Profile";
-
-// Import Resource
-import Resource from "./pages/Resources";
-
-// PAGES END //
-
-// Set up HTTP Link
-const httpLink = createHttpLink({
-  uri: "/graphql",
-});
-
-// Set up authLink
-const authLink = setContext((_, { headers }) => {
-  // Set up token
-  const token = localStorage.getItem("id_token");
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : "",
-    },
-  };
-});
-
-// Set up client
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
-});
-
+// Set up App function
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <div className="container">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/resources" element={<Resources />} />
-            </Routes>
-          </div>
-          <Footer />
+    <Router>
+      <div className="flex-column justify-flex-start min-100-vh">
+        <Header />
+        <div className="container">
+          <Home />
         </div>
-      </Router>
-    </ApolloProvider>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
