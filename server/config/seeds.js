@@ -24,6 +24,6 @@ db.once("open", async () => {
     console.error(err);
     process.exit(1);
   }
-  console.log("Users, Tags & Posts Seeded!");
+  console.log("Users, Tags, & Posts Seeded!");
   process.exit(0);
 });

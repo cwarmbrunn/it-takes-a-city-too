@@ -70,31 +70,29 @@ export const QUERY_ONE_USER = gql`
 `;
 
 export const QUERY_RESOURCES = gql`
-query {
-  allposts {
-    locationName
-    address
-    secondary
-    fullAddress
-    tags
+  query {
+    allposts {
+      locationName
+      address
+      secondary
+      fullAddress
+      tags
+    }
   }
-}
 `;
 // kaijam please check these last two queries
 
 export const QUERY_TAGS = gql`
-query {
-  allposts {
+  query {
     tags
   }
-}
 `;
 
 export const QUERY_ALL_LOCATIONS = gql`
-query {
-  allposts {
-    city
-    state
+  query {
+    allposts {
+      city
+      state
+    }
   }
-}
 `;
