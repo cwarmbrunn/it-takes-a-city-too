@@ -51,6 +51,7 @@ export const ADD_POST = gql`
       zipCode: $zipCode
       tags: $tags
     ) {
+      _id
       postText
       username
       locationName
@@ -66,36 +67,59 @@ export const ADD_POST = gql`
 
 // Export UPDATE_POST
 export const UPDATE_POST = gql`
-  mutation updatePost($id: ID!) {
-    updatePost(id: $id) {
-      updatePost(
-        postText: $postText
-        locationName: $locationName
-        address: $address
-        secondary: $secondary
-        city: $city
-        state: $state
-        zipCode: $zipCode
-        tags: $tags
-      ) {
-        postText
-        username
-        locationName
-        address
-        secondary
-        city
-        state
-        zipCode
-        tags
-      }
-    }
+  mutation updatePost(
+    _id: $_id
+    $postText: String
+    $locationName: String
+    $address: String
+    $secondary: String
+    $city: String
+    $state: String
+    $zipCode: String
+    $tags: [String]  
+  ) {
+    updatePost(
+    _id: $_id
+    postText: $postText
+    locationName: $locationName
+    address: $address
+    secondary: $secondary
+    city: $city
+    state: $state
+    zipCode: $zipCode
+    tags: $tags
+  ) {
+    _id
+    postText
+    username
+    locationName
+    address
+    secondary
+    city
+    state
+    zipCode
+    tags
+  }
+}
 `;
 
 // Export DELETE_POST
 export const DELETE_POST = gql`
-  mutation deletePost($id: ID!) {
-    deletePost(id: $id) {
+  mutation deletePost($_id: ID!) {
+    deletePost(_id: $id) {
       _id
+      postText
+      username
+      locationName
+      address
+      secondary
+      fullAddress
+      commentCount
+      comments {
+        _id
+        commentBody
+        username
+      }
     }
   }
 `;
