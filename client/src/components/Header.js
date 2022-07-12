@@ -18,7 +18,7 @@ const Header = () => {
         <Link to="/" className="text-decoration-none">
           <h1 className="text-light flex-row align-center">
             {" "}
-            It Takes a City Too 🌆
+            It Takes a City Too
           </h1>
         </Link>
         <nav className="flex items-center justify-between">

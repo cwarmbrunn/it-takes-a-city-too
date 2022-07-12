@@ -54,6 +54,11 @@ const Home = () => {
       </div>
     </main>
   );
+  if (loggedIn != true) {
+    $(document).ready(function () {
+      $("#myModal").modal("show");
+    });
+  }
 };
 
 // Export Home
