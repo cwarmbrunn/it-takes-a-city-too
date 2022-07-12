@@ -48,6 +48,8 @@ const Header = () => {
                     <a
                       className="donateBtn nav-link text-decoration-none"
                       href="https://buy.stripe.com/test_4gw2987Y5aldare288"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       Donate
                     </a>
@@ -95,6 +97,8 @@ const Header = () => {
                       Resources
                     </a>
                   </li>
+                  {/* Donate */}
+                  {/* Allows the user to access our donate button via Stripe */}
                   <li className="nav-item">
                     <a
                       className="donateBtn nav-link text-decoration-none"
