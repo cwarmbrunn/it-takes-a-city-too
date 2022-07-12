@@ -6,10 +6,25 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* Navigation Bar Styling */
+.navbar > a{
+  color:white
+}
+.navbar > a:hover{
+  color:black;
+  /* For older browsers */
+  -webkit-transition: color 1.5s;
+  transition: color 1.5s;
+}
 
-/* HEADER CSS  */
-h1{
-  font-size: large;
+.navbar > .navbar-nav > .nav-item > a {
+  color: white
+}
+.navbar > .navbar-nav > .nav-item > a:hover{
+  color: black;
+  /* For older browsers */
+  -webkit-transition: color 1.5s;
+  transition: color 1.5s;
 }
 
 /* Wanted to set up header hover - this way a user can see it's a link  */
@@ -17,3 +32,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
