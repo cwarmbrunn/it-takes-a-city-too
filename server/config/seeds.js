@@ -1,14 +1,14 @@
 const userSeeds = require('./userSeed.json');
 const postSeeds = require('./postSeed.json');
 const db = require("./connection");
-const { User, Post } = require("../models");
+const { User, Post, Tag } = require("../models");
 
 db.once("open", async () => {
   try {
     // drop tables
     await Post.deleteMany({});
     await User.deleteMany({});
-
+    await Tag.deleteMan
     // seed tables
     await User.create(userSeeds);
 
