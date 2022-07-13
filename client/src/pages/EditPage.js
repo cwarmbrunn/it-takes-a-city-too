@@ -53,16 +53,46 @@ const EditPage = () => {
           <div className="card-body">
             <form onSubmit={handlePostItem}>
                 {/* Form Input - Enter Location Name */}
-                <input className="form-input" placeholder="Enter Location Name"></input>
+                <input
+                className="form-input"
+                placeholder="Enter Location Name"
+                name="name"></input>
                 {/* Form Input - Enter Location Address */}
-                <input className="form-input" placeholder="Enter Address"></input>
-                {/* Form Input - Emter Tags */}
-                <input className="form-input" placeholder="Enter Tags"></input>
-                {/* Submit new Post button */}
+                <input
+                className="form-input"
+                placeholder="Enter Location Name"
+                name="name"
+                type="text"
+                id="locationName"
+                value={formState.name}
+                onChange={handleChange}
+                />
+                {/* Form Input - Enter Location Address */}
+                <input
+                className="form-input"
+                placeholder="Enter Address"
+                name="address"
+                type="text"
+                id="locationAddress"
+                value={formState.address}
+                onChange={handleChange}
+                />
+                {/* Form Input - Enter Tags */}
+                <input
+                className="form-input"
+                placeholder="Enter Tags"
+                name="tags"
+                type="text"
+                id="tags"
+                value={formState.tags}
+                onChange={handleChange}
+                />
+                {/* Submit newly edited Post button */}
                 <button className="btn d-block w-100" type="submit" style= {{ background: "orange" }}>
                 Submit
                 </button>
              </form>
+             {error && <div>Could not add post!</div>}
           </div>
         </div>
       </div>
