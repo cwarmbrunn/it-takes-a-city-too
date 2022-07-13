@@ -1,5 +1,6 @@
 // Import React
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 // Import Auth
 import Auth from "../utils/auth";
@@ -20,12 +21,15 @@ const Header = () => {
             <>
               {/* Set up navigation bar items*/}
 
+              {/* Home Page - Link #1  */}
               <nav className="navbar navbar-expand-lg">
                 <ul className="navbar-nav">
-                  {/* Home Page */}
-                  <a className="nav-link text-decoration-none" href="/">
-                    It Takes A City Too
-                  </a>
+                  <NavLink to="/">
+                    <h1 className="nav-link text-decoration-none">
+                      It Takes A City Too
+                    </h1>
+                  </NavLink>
+
                   {/* Logout Option */}
                   <li className="nav-item">
                     <a className="nav-link text-decoration-none" href="/logout">
@@ -59,34 +63,38 @@ const Header = () => {
             </>
           ) : (
             <>
+              {/* USER IS NOT LOGGED IN  */}
               {/* If the user is not logged in - allow them to only see the following */}
 
               <nav className="navbar navbar-expand-lg">
                 {/* Home Page */}
-                <a
-                  className="text-decoration-none text-light font-weight-bold"
-                  href="/"
+                <NavLink
+                  to="/"
+                  className="nav-links text-decoration-none text-light"
                 >
-                  It Takes A City Too
-                </a>
+                  <h1 className=" text-light nav-link text-decoration-none">
+                    It Takes A City Too
+                  </h1>
+                </NavLink>
                 <ul className="navbar-nav">
                   {/* Login */}
-                  <li className="nav-item ">
-                    <a className="nav-link text-decoration-none" href="/login">
-                      {/* Enables the user to login with existing credentials */}
-                      Login
-                    </a>
-                  </li>
+                  {/* Enables the user to login with existing credentials */}
+                  <NavLink
+                    to="/login"
+                    className="nav-links text-decoration-none text-light"
+                  >
+                    <li className="nav-item">Log In</li>
+                  </NavLink>
+
                   {/* Sign Up */}
                   {/* Enables the user to sign up with existing credentials */}
-                  <li className="nav-item">
-                    <a
-                      className="nav-link text-decoration-none "
-                      href="/signup"
-                    >
-                      Sign Up
-                    </a>
-                  </li>
+                  <NavLink
+                    to="/signup"
+                    className="nav-links text-decoration-none text-light"
+                  >
+                    <li className="nav-item">Sign Up</li>
+                  </NavLink>
+
                   {/* Resources */}
                   {/* Allows the user to see the resources page */}
                   <li className="nav-item">

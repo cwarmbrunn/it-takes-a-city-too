@@ -26,7 +26,6 @@ const Home = () => {
             remember: it takes a city!{" "}
           </p>
         </div>
-        <div className="py-5 posts">{/* Posts to go here? */}</div>
       </div>
     </main>
   );
