@@ -47,6 +47,9 @@ const Home = () => {
       </tr>
     </thead>
     <tbody id="myTable">
+      <div className ="postContainer">
+
+      </div>
       <tr>
         <td>John</td>
         <td>Doe</td>
