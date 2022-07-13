@@ -14,7 +14,7 @@ root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
-  
+
 );
 window.onload = function(){
 $(document).ready(function(){
