@@ -29,7 +29,7 @@ import Footer from "./components/Footer";
 import MyTable from "./components/PostTable";
 // PAGE START //
 
-import Home from "./pages/Home";
+import PostPage from "./pages/PostPage";
 
 // PAGE END //
 
@@ -40,8 +40,8 @@ function App() {
       <div className="flex-column justify-flex-start min-100-vh">
         <Header />
         <div className="container">
-          <Home />
-          <MyTable/>
+          <PostPage />
+          // <MyTable/>
         </div>
         <Footer />
       </div>

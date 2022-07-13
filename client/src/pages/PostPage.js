@@ -10,7 +10,7 @@ import { useMutation } from "@apollo/client";
 // Import Auth
 import Auth from "../utils/auth";
 
-const postPage = () => {
+const PostPage = () => {
  function handlePostItem(){
     //Madison:hit api route to post by grabbing info from form
  }
@@ -19,15 +19,16 @@ const postPage = () => {
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-md-6">
         <div className="card">
-          <h4 className="card-header">Post</h4>
+          <h4 className="card-header">Add a Resource</h4>
           <div className="card-body">
-            <form>
-                <h2>Name of Location</h2>
-                <input></input>
-                <h2>Location</h2>
-                <input></input>
-                <h2>Tags</h2>
-                <input></input>
+            <form onSubmit={handlePostItem}>
+                <input className="form-input" placeholder="Enter Location Name"></input>
+                <input className="form-input" placeholder="Enter Address"></input>
+                <input className="form-input" placeholder="Enter Tags"></input>
+                {/* Submit new Post button */}
+                <button className="btn d-block w-100" type="submit" style= {{ background: "orange" }}>
+                Add Post
+                </button>
              </form>
           </div>
         </div>
@@ -35,3 +36,6 @@ const postPage = () => {
     </main>
   );
 }
+
+// export PostPage
+export default PostPage;
