@@ -10,6 +10,7 @@ export const QUERY_ALL_POSTS = gql`
       address
       secondary
       fullAddress
+      commentCounty
       comments {
         _id
         commentBody
@@ -47,6 +48,31 @@ export const QUERY_ALL_USERS = gql`
 export const QUERY_ONE_USER = gql`
   query User($username: String!) {
     user(username: $username) {
+      _id
+      username
+      email
+      posts {
+        _id
+        postText
+        username
+        locationName
+        address
+        secondary
+        fullAddress
+        tags
+        comments {
+          _id
+          commentBody
+          username
+        }
+      }
+    }
+  }
+`;
+
+export const QUERY_CURRENT_USER = gql`
+  query {
+    me {
       _id
       username
       email
