@@ -6,8 +6,8 @@ import Auth from "../utils/auth";
 
 // Import useQuery
 import { useQuery } from "@apollo/client";
-// TODO: KAIJAM - Import the queries we'll need from utils/queries
-
+import {QUERY_ALL_POSTS, QUERY_ALL_USERS, QUERY_ONE_USER, QUERY_RESOURCES, QUERY_TAGS,
+QUERY_ALL_LOCATIONS} from "../utils/queries"
 // Set up Home function
 const Home = () => {
   // Set up a constant for being loggedIn
