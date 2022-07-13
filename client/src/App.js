@@ -26,7 +26,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 // COMPONENTS END //
-
+import MyTable from "./components/PostTable";
 // PAGE START //
 
 import Home from "./pages/Home";
@@ -41,6 +41,7 @@ function App() {
         <Header />
         <div className="container">
           <Home />
+          <MyTable/>
         </div>
         <Footer />
       </div>
