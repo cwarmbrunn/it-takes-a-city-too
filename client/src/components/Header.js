@@ -97,19 +97,19 @@ const Header = () => {
 
                   {/* Resources */}
                   {/* Allows the user to see the resources page */}
-                  <li className="nav-item">
-                    <a
-                      className="nav-link text-decoration-none"
-                      href="/resources"
-                    >
-                      Resources
-                    </a>
-                  </li>
+                  <NavLink
+                    to="/resources"
+                    className="nav-links text-decoration-none text-light"
+                  >
+                    <li className="nav-item">Resources</li>
+                  </NavLink>
+
                   {/* Donate */}
                   {/* Allows the user to access our donate button via Stripe */}
+
                   <li className="nav-item">
                     <a
-                      className="donateBtn nav-link text-decoration-none"
+                      className="nav-links text-decoration-none text-light"
                       href="https://buy.stripe.com/test_4gw2987Y5aldare288"
                       target="_blank"
                       rel="noreferrer"
