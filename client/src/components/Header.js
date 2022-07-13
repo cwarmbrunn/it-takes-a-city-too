@@ -24,33 +24,40 @@ const Header = () => {
               {/* Home Page - Link #1  */}
               <nav className="navbar navbar-expand-lg">
                 <ul className="navbar-nav">
-                  <NavLink to="/">
-                    <h1 className="nav-link text-decoration-none">
+                  {/* Home Page */}
+                  <NavLink
+                    to="/"
+                    className="nav-links text-decoration-none text-light p-2"
+                  >
+                    <h1 className=" text-light nav-link text-decoration-none">
                       It Takes A City Too
                     </h1>
                   </NavLink>
 
                   {/* Logout Option */}
-                  <li className="nav-item">
-                    <a className="nav-link text-decoration-none" href="/logout">
-                      {/* Enables the user to logout from their existing session */}
-                      Logout
-                    </a>
-                  </li>
+                  <NavLink
+                    to="/logout"
+                    className="nav-links text-decoration-none text-light p-2"
+                  >
+                    <li className="nav-item"> Logout</li>
+                  </NavLink>
+
                   {/* Resources */}
-                  <li className="nav-item">
+                  {/* TODO: Need to ensure the logout method works properly */}
+                  {/* Allows the user to see the resources page */}
+                  <NavLink
+                    to="/resources"
+                    className="nav-links text-decoration-none text-light p-2"
+                  >
+                    <li className="nav-item">Resources</li>
+                  </NavLink>
+
+                  {/* Donate */}
+                  {/* Allows the user to access our donate button via Stripe */}
+
+                  <li className="nav-item p-2">
                     <a
-                      className="nav-link text-decoration-none"
-                      href="/resources"
-                    >
-                      {/* Enables the user to view the resources page */}
-                      Resources{" "}
-                    </a>
-                  </li>
-                  {/* Donate Button */}
-                  <li className="nav-item">
-                    <a
-                      className="donateBtn nav-link text-decoration-none"
+                      className="nav-links text-decoration-none text-light"
                       href="https://buy.stripe.com/test_4gw2987Y5aldare288"
                       target="_blank"
                       rel="noreferrer"
@@ -70,7 +77,7 @@ const Header = () => {
                 {/* Home Page */}
                 <NavLink
                   to="/"
-                  className="nav-links text-decoration-none text-light"
+                  className="nav-links text-decoration-none text-light p-2"
                 >
                   <h1 className=" text-light nav-link text-decoration-none">
                     It Takes A City Too
@@ -81,7 +88,7 @@ const Header = () => {
                   {/* Enables the user to login with existing credentials */}
                   <NavLink
                     to="/login"
-                    className="nav-links text-decoration-none text-light"
+                    className="nav-links text-decoration-none text-light p-2"
                   >
                     <li className="nav-item">Log In</li>
                   </NavLink>
@@ -90,7 +97,7 @@ const Header = () => {
                   {/* Enables the user to sign up with existing credentials */}
                   <NavLink
                     to="/signup"
-                    className="nav-links text-decoration-none text-light"
+                    className="nav-links text-decoration-none text-light p-2"
                   >
                     <li className="nav-item">Sign Up</li>
                   </NavLink>
@@ -99,7 +106,7 @@ const Header = () => {
                   {/* Allows the user to see the resources page */}
                   <NavLink
                     to="/resources"
-                    className="nav-links text-decoration-none text-light"
+                    className="nav-links text-decoration-none text-light p-2"
                   >
                     <li className="nav-item">Resources</li>
                   </NavLink>
@@ -107,7 +114,7 @@ const Header = () => {
                   {/* Donate */}
                   {/* Allows the user to access our donate button via Stripe */}
 
-                  <li className="nav-item">
+                  <li className="nav-item p-2">
                     <a
                       className="nav-links text-decoration-none text-light"
                       href="https://buy.stripe.com/test_4gw2987Y5aldare288"
