@@ -19,6 +19,7 @@ const Header = () => {
           {/* Set up functionality if user is logged in */}
           {Auth.loggedIn() ? (
             <>
+              {/* USER IS LOGGED IN */}
               {/* Set up navigation bar items*/}
 
               {/* Home Page - Link #1  */}
@@ -29,12 +30,13 @@ const Header = () => {
                     to="/"
                     className="nav-links text-decoration-none text-light p-2"
                   >
-                    <h1 className=" text-light nav-link text-decoration-none">
+                    <h1 className="text-light nav-link text-decoration-none">
                       It Takes A City Too
                     </h1>
                   </NavLink>
 
                   {/* Logout Option */}
+                  {/* TODO: Need to ensure the logout method works properly */}
                   <NavLink
                     to="/logout"
                     className="nav-links text-decoration-none text-light p-2"
@@ -43,7 +45,6 @@ const Header = () => {
                   </NavLink>
 
                   {/* Resources */}
-                  {/* TODO: Need to ensure the logout method works properly */}
                   {/* Allows the user to see the resources page */}
                   <NavLink
                     to="/resources"
@@ -79,9 +80,7 @@ const Header = () => {
                   to="/"
                   className="nav-links text-decoration-none text-light p-2"
                 >
-                  <h1 className=" text-light nav-link text-decoration-none">
-                    It Takes A City Too
-                  </h1>
+                  <h1 className="title-main">It Takes A City Too</h1>
                 </NavLink>
                 <ul className="navbar-nav">
                   {/* Login */}
