@@ -44,15 +44,6 @@ const Header = () => {
                     <li className="nav-item"> Logout</li>
                   </NavLink>
 
-                  {/* Resources */}
-                  {/* Allows the user to see the resources page */}
-                  <NavLink
-                    to="/resources"
-                    className="nav-links text-decoration-none text-light p-2"
-                  >
-                    <li className="nav-item">Resources</li>
-                  </NavLink>
-
                   {/* Donate */}
                   {/* Allows the user to access our donate button via Stripe */}
 
@@ -100,29 +91,19 @@ const Header = () => {
                   >
                     <li className="nav-item">Sign Up</li>
                   </NavLink>
-
-                  {/* Resources */}
-                  {/* Allows the user to see the resources page */}
-                  <NavLink
-                    to="/resources"
-                    className="nav-links text-decoration-none text-light p-2"
-                  >
-                    <li className="nav-item">Resources</li>
-                  </NavLink>
-
                   {/* Donate */}
                   {/* Allows the user to access our donate button via Stripe */}
-      
-                    <li className="nav-item p-2">
-                      <a
-                        className="nav-links text-decoration-none text-light"
-                        href="https://buy.stripe.com/test_4gw2987Y5aldare288"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Donate
-                      </a>
-                    </li>
+
+                  <li className="nav-item p-2">
+                    <a
+                      className="nav-links text-decoration-none text-light"
+                      href="https://buy.stripe.com/test_4gw2987Y5aldare288"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Donate
+                    </a>
+                  </li>
                 </ul>
               </nav>
             </>
