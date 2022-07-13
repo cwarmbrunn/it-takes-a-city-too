@@ -12,9 +12,10 @@ import Auth from "../utils/auth";
 
 const editPage = () => {
  function handleEditItem(){
-    //hit api route to edit by grabbing info from form
+      //Madison:hit api route to edit by grabbing info from form
  }
  return (
+    //Madison: style this page
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-md-6">
         <div className="card">

@@ -12,9 +12,10 @@ import Auth from "../utils/auth";
 
 const postPage = () => {
  function handlePostItem(){
-    //hit api route to post by grabbing info from form
+    //Madison:hit api route to post by grabbing info from form
  }
  return (
+    //Madison: style this page
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-md-6">
         <div className="card">
