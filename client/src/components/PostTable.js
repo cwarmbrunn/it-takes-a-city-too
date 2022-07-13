@@ -1,5 +1,17 @@
 import React from 'react';
 import { MDBDataTable } from 'mdbreact';
+import { data } from 'jquery';
+var i;
+for(i=0;i<data.length;i++){
+  var name = data[i]
+  var location= data[i]
+  var tag = [i]
+    var tableData = [
+      name,
+      location,
+      tag
+    ]
+}
 
 const DatatablePage = () => {
   const data = {
@@ -19,6 +31,12 @@ const DatatablePage = () => {
       {
         label: 'Tags',
         field: 'tags',
+        sort: 'asc',
+        width: 200
+      },
+      {
+        label: 'ID',
+        field: 'id',
         sort: 'asc',
         width: 200
       }
