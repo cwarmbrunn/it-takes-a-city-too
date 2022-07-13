@@ -84,7 +84,9 @@ export const QUERY_RESOURCES = gql`
 
 export const QUERY_TAGS = gql`
   query {
-    tags
+    tags {
+      tagBody
+    }
   }
 `;
 
