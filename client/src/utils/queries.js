@@ -80,6 +80,7 @@ export const QUERY_RESOURCES = gql`
     }
   }
 `;
+
 // kaijam please check these last two queries
 
 export const QUERY_TAGS = gql`

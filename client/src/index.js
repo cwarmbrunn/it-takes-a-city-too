@@ -5,6 +5,14 @@ import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import {
+  QUERY_ALL_POSTS,
+  QUERY_ALL_USERS,
+  QUERY_ONE_USER,
+  QUERY_RESOURCES,
+  QUERY_TAGS,
+  QUERY_ALL_LOCATIONS,
+} from "../utils/queries";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
