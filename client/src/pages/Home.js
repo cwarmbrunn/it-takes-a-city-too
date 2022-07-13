@@ -1,6 +1,9 @@
 // Import React
 import React from "react";
 
+// Import useNavigate
+import { useNavigate } from "react-router-dom";
+
 // Import Auth
 import Auth from "../utils/auth";
 
@@ -32,7 +35,7 @@ const Home = () => {
           <p className="text-xl">
             These posts are here to help and get you through tough times, you can search for certain types or places
           </p>
-          <button type="button">Add a Resource</button>
+          <button type="button" onClick={event => window.location.href="/PostPage"}>Add a Resource</button>
               </div>
           </main>
           );
