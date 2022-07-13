@@ -3,15 +3,13 @@ import React, { useState } from "react";
 
 // Import useMutation
 import { useMutation } from "@apollo/client";
-
-// Import LOGIN_USER from Mutations.js
-// import { LOGIN_USER } from "../utils/mutations";
+import { LOGIN_USER } from "../utils/mutations";
 
 // Import Auth
 import Auth from "../utils/auth";
 
 // Set up Login
-const Login = (props) => {
+const Login = () => {
   // Set up login formState
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN_USER);
@@ -19,11 +17,7 @@ const Login = (props) => {
   // Update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+    setFormState({ ...formState, [name]: value, });
   };
 
   // Submit Form

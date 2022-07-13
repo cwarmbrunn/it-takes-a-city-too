@@ -28,6 +28,11 @@ import Footer from "./components/Footer";
 // PAGE START //
 
 import Home from "./pages/Home";
+import Login from "./pages/Login";
+// import Signup from "./pages/Signup";
+// import Profile from "./pages/Profile";
+// import Resources from "./pages/Resources";
+import NotFound from './pages/NotFound';
 
 // PAGE END //
 
@@ -38,7 +43,14 @@ function App() {
       <div className="flex-column justify-flex-start min-100-vh">
         <Header />
         <div className="container">
-          <Home />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            {/* <Route path="/signup" element={<Signup />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/resources" element={<Resources />} /> */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </div>
         <Footer />
       </div>
