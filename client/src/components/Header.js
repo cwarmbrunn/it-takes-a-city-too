@@ -1,5 +1,6 @@
 // Import React
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 // Import Auth
 import Auth from "../utils/auth";
@@ -18,35 +19,46 @@ const Header = () => {
           {/* Set up functionality if user is logged in */}
           {Auth.loggedIn() ? (
             <>
+              {/* USER IS LOGGED IN */}
               {/* Set up navigation bar items*/}
 
+              {/* Home Page - Link #1  */}
               <nav className="navbar navbar-expand-lg">
                 <ul className="navbar-nav">
                   {/* Home Page */}
-                  <a className="nav-link text-decoration-none" href="/">
-                    It Takes A City Too
-                  </a>
+                  <NavLink
+                    to="/"
+                    className="nav-links text-decoration-none text-light p-2"
+                  >
+                    <h1 className="text-light nav-link text-decoration-none">
+                      It Takes A City Too
+                    </h1>
+                  </NavLink>
+
                   {/* Logout Option */}
-                  <li className="nav-item">
-                    <a className="nav-link text-decoration-none" href="/logout">
-                      {/* Enables the user to logout from their existing session */}
-                      Logout
-                    </a>
-                  </li>
+                  {/* TODO: Need to ensure the logout method works properly */}
+                  <NavLink
+                    to="/logout"
+                    className="nav-links text-decoration-none text-light p-2"
+                  >
+                    <li className="nav-item"> Logout</li>
+                  </NavLink>
+
                   {/* Resources */}
-                  <li className="nav-item">
+                  {/* Allows the user to see the resources page */}
+                  <NavLink
+                    to="/resources"
+                    className="nav-links text-decoration-none text-light p-2"
+                  >
+                    <li className="nav-item">Resources</li>
+                  </NavLink>
+
+                  {/* Donate */}
+                  {/* Allows the user to access our donate button via Stripe */}
+
+                  <li className="nav-item p-2">
                     <a
-                      className="nav-link text-decoration-none"
-                      href="/resources"
-                    >
-                      {/* Enables the user to view the resources page */}
-                      Resources{" "}
-                    </a>
-                  </li>
-                  {/* Donate Button */}
-                  <li className="nav-item">
-                    <a
-                      className="donateBtn nav-link text-decoration-none"
+                      className="nav-links text-decoration-none text-light"
                       href="https://buy.stripe.com/test_4gw2987Y5aldare288"
                       target="_blank"
                       rel="noreferrer"
@@ -59,56 +71,58 @@ const Header = () => {
             </>
           ) : (
             <>
+              {/* USER IS NOT LOGGED IN  */}
               {/* If the user is not logged in - allow them to only see the following */}
 
               <nav className="navbar navbar-expand-lg">
                 {/* Home Page */}
-                <a
-                  className="text-decoration-none text-light font-weight-bold"
-                  href="/"
+                <NavLink
+                  to="/"
+                  className="nav-links text-decoration-none text-light p-2"
                 >
-                  It Takes A City Too
-                </a>
+                  <h1 className="title-main">It Takes A City Too</h1>
+                </NavLink>
                 <ul className="navbar-nav">
                   {/* Login */}
-                  <li className="nav-item ">
-                    <a className="nav-link text-decoration-none" href="/login">
-                      {/* Enables the user to login with existing credentials */}
-                      Login
-                    </a>
-                  </li>
+                  {/* Enables the user to login with existing credentials */}
+                  <NavLink
+                    to="/login"
+                    className="nav-links text-decoration-none text-light p-2"
+                  >
+                    <li className="nav-item">Log In</li>
+                  </NavLink>
+
                   {/* Sign Up */}
                   {/* Enables the user to sign up with existing credentials */}
-                  <li className="nav-item">
-                    <a
-                      className="nav-link text-decoration-none "
-                      href="/signup"
-                    >
-                      Sign Up
-                    </a>
-                  </li>
+                  <NavLink
+                    to="/signup"
+                    className="nav-links text-decoration-none text-light p-2"
+                  >
+                    <li className="nav-item">Sign Up</li>
+                  </NavLink>
+
                   {/* Resources */}
                   {/* Allows the user to see the resources page */}
-                  <li className="nav-item">
-                    <a
-                      className="nav-link text-decoration-none"
-                      href="/resources"
-                    >
-                      Resources
-                    </a>
-                  </li>
+                  <NavLink
+                    to="/resources"
+                    className="nav-links text-decoration-none text-light p-2"
+                  >
+                    <li className="nav-item">Resources</li>
+                  </NavLink>
+
                   {/* Donate */}
                   {/* Allows the user to access our donate button via Stripe */}
-                  <li className="nav-item">
-                    <a
-                      className="donateBtn nav-link text-decoration-none"
-                      href="https://buy.stripe.com/test_4gw2987Y5aldare288"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Donate
-                    </a>
-                  </li>
+      
+                    <li className="nav-item p-2">
+                      <a
+                        className="nav-links text-decoration-none text-light"
+                        href="https://buy.stripe.com/test_4gw2987Y5aldare288"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Donate
+                      </a>
+                    </li>
                 </ul>
               </nav>
             </>

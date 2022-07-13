@@ -6,28 +6,33 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* Navigation Bar Styling */
-.navbar > a{
-  color:white
-}
-.navbar > a:hover{
-  color:black;
-  /* For older browsers */
-  -webkit-transition: color 1.5s;
-  transition: color 1.5s;
-}
 
-.navbar > .navbar-nav > .nav-item > a {
-  color: white
-}
-.navbar > .navbar-nav > .nav-item > a:hover{
+/* HOVER STYLING  */
+/* Hover Element for "It Takes A City Too" H1 */
+.navbar > .nav-links > .title-main:hover{
   color: black;
+
   /* For older browsers */
   -webkit-transition: color 1.5s;
-  transition: color 1.5s;
+   transition: color 1.5s; 
 }
 
-/* Wanted to set up header hover - this way a user can see it's a link  */
+/* Hover for Navigation Bar Items */
+.nav-item:hover{
+color: black;
+
+/* For older browsers */
+-webkit-transition: color 1.5s;
+ transition: color 1.5s;
+}
+/* Hover for Donate Button */
+.navbar > .nav-item > .nav-links:hover {
+  color: red;
+
+/* For older browsers */
+-webkit-transition: color 1.5s;
+ transition: color 1.5s;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
