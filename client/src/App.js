@@ -23,6 +23,9 @@ import Header from "./components/Header";
 // Import Footer
 import Footer from "./components/Footer";
 
+// Import Data Table
+import DatatablePage from "./components/PostTable";
+
 // COMPONENTS END //
 
 // PAGE START //
@@ -32,7 +35,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
-import DatatablePage from "./components/PostTable";
+import PostPage from "./pages/PostPage";
 
 // PAGE END //
 
@@ -68,6 +71,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/add-post" element={<PostPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <DatatablePage />

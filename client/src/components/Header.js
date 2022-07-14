@@ -25,7 +25,6 @@ const Header = () => {
               <h1 className="title-main">It Takes A City Too</h1>
             </NavLink>
             <ul className="navbar-nav">
-
               {/* Donate */}
               {/* Allows the user to access our donate button via Stripe */}
               {Auth.loggedIn() ? (
@@ -50,6 +49,15 @@ const Header = () => {
                   >
                     <li className="nav-item"> Logout</li>
                   </NavLink>
+
+                  {/* Add Post */}
+                  {/* Allows the logged in user to create a post  */}
+                  <NavLink
+                    to="/add-post"
+                    className="nav-links text-decoration-none text-light p-2"
+                  >
+                    <li className="nav-item">Add Post</li>
+                  </NavLink>
                 </>
               ) : (
                 <>
@@ -71,8 +79,6 @@ const Header = () => {
                     className="nav-links text-decoration-none text-light p-2"
                   >
                     <li className="nav-item">Sign Up</li>
-
-
                   </NavLink>
                 </>
               )}
@@ -83,15 +89,13 @@ const Header = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <li className="nav-item p-2">
-                  Donate
-                </li>
+                <li className="nav-item p-2">Donate</li>
               </a>
             </ul>
           </nav>
         </nav>
       </div>
-    </header >
+    </header>
   );
 };
 

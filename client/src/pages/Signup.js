@@ -34,7 +34,7 @@ const Signup = () => {
   // Submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log( {...formState} );
+    console.log({ ...formState });
 
     try {
       const { data } = await addUser({ variables: { ...formState } });
@@ -59,6 +59,7 @@ const Signup = () => {
                 id="username"
                 value={formState.username}
                 onChange={handleChange}
+                required
               />
               {/* Form Input - Email  */}
               <input
@@ -69,6 +70,7 @@ const Signup = () => {
                 id="email"
                 value={formState.email}
                 onChange={handleChange}
+                required
               />
               {/* Form Input - Password */}
               <input
@@ -79,9 +81,10 @@ const Signup = () => {
                 id="password"
                 value={formState.password}
                 onChange={handleChange}
+                required
               />
               {/* Submit User Information Button */}
-              <button className="btn d-block w-100" type="submit">
+              <button className="btn-block btn-primary" type="submit">
                 Submit
               </button>
             </form>

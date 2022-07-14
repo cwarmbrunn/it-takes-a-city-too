@@ -31,7 +31,7 @@ const Home = () => {
             remember: it takes a city!{" "}
           </p>
         </div>
-        
+
             </div>
           </main>
           );
