@@ -51,12 +51,7 @@ const EditPage = () => {
         <div className="card">
           <h4 className="card-header">Edit Post</h4>
           <div className="card-body">
-            <form onSubmit={handlePostItem}>
-                {/* Form Input - Enter Location Name */}
-                <input
-                className="form-input"
-                placeholder="Enter Location Name"
-                name="name"></input>
+            <form onSubmit={handlePostItem}>        
                 {/* Form Input - Enter Location Address */}
                 <input
                 className="form-input"
