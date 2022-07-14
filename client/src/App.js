@@ -36,6 +36,7 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import PostPage from "./pages/PostPage";
+import EditPage from "./pages/EditPage";
 
 // PAGE END //
 

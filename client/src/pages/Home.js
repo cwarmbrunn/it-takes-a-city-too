@@ -26,12 +26,13 @@ const Home = () => {
         <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
           <h1 className="text-decoration-underline">About Us</h1>
           <p className="text-xl">
-            We wanted to create a space folks to connect and share resources in
+            We wanted to create a space for folks to connect and share resources in
             their city. Share a resource, leave a comment about one posted, and
             remember: it takes a city!{" "}
           </p>
         </div>
-
+        <div>
+        </div>
             </div>
           </main>
           );
