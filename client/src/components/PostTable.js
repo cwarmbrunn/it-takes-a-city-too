@@ -24,7 +24,7 @@ const DatatablePage = () => {
       console.log(data.allposts[i].postText)
       var username = data.allposts[i].username;
       for(var x = 0;x < data.allposts[i].tags.length;x++){
-        console.log(x)
+        
         if (x !== data.allposts[i].tags.length-1){
           
       tag += data.allposts[i].tags[x] + "," ;
@@ -34,8 +34,10 @@ const DatatablePage = () => {
         }
       }
       var id = data.allposts[i]._id;
-      console.log(tableData)
+
+
       tableData[i] = {name, location, tag, id,postText,username};
+
     }
     return tableData;
   };
@@ -70,6 +72,12 @@ const DatatablePage = () => {
         field: "postText",
         sort: "asc",
         width: 400,
+      },
+      {
+        label: "User",
+        field: "username",
+        sort: "asc",
+        width: 200,
       },
       {
         label: "User",
