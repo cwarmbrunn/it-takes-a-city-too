@@ -21,25 +21,25 @@ root.render(
     <App />
   </React.StrictMode>
 );
-window.onload = function () {
-  $(document).ready(function () {
-    $("#myInput").on("keyup", function () {
-      var value = $(this).val().toLowerCase();
-      $("#myTable tr").filter(function () {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-      });
-    });
-  });
-};
-function getPosts() {
-  console.log("start");
-  var table = document.getElementsByClassID("myTable");
-  console.log(table);
-  table.innerHTML += "<tr> <td>Item</td> </tr>";
-  console.log("finished");
-}
+// window.onload = function () {
+//   $(document).ready(function () {
+//     $("#myInput").on("keyup", function () {
+//       var value = $(this).val().toLowerCase();
+//       $("#myTable tr").filter(function () {
+//         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+//       });
+//     });
+//   });
+// };
+// function getPosts() {
+//   console.log("start");
+//   var table = document.getElementsByClassID("myTable");
+//   console.log(table);
+//   table.innerHTML += "<tr> <td>Item</td> </tr>";
+//   console.log("finished");
+// }
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-getPosts();
+// getPosts();
 reportWebVitals();
