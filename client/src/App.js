@@ -34,6 +34,7 @@ import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import DatatablePage from "./components/PostTable";
 
+
 // PAGE END //
 
 const httpLink = createHttpLink({

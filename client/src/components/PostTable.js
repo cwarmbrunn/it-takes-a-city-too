@@ -30,7 +30,8 @@ const DatatablePage = () => {
         }
       }
       var id = data.allposts[i]._id;
-      tableData[i] = {name, location, tag, id};
+      var username = data.allposts[i].username;
+      tableData[i] = {name, location, tag, id,username};
     }
     return tableData;
   };
@@ -57,6 +58,12 @@ const DatatablePage = () => {
       {
         label: "ID",
         field: "id",
+        sort: "asc",
+        width: 200,
+      },
+      {
+        label: "User",
+        field: "username",
         sort: "asc",
         width: 200,
       },
