@@ -6,16 +6,6 @@ import { QUERY_ALL_POSTS } from "./utils/queries.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-<<<<<<< HEAD
-import {
-  QUERY_ALL_USERS,
-  QUERY_ONE_USER,
-  QUERY_RESOURCES,
-  QUERY_TAGS,
-  QUERY_ALL_LOCATIONS,
-} from "./utils/queries";
-=======
->>>>>>> 75faea8293a608269e067de938db0413143217e1
 
 // const $ = require("jquery");
 const root = ReactDOM.createRoot(document.getElementById("root"));
