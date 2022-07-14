@@ -67,7 +67,7 @@ export const ADD_POST = gql`
 // Export UPDATE_POST
 export const UPDATE_POST = gql`
   mutation updatePost(
-    _id: $_id
+    $_id: ID!
     $postText: String
     $locationName: String
     $address: String
@@ -105,7 +105,7 @@ export const UPDATE_POST = gql`
 // Export DELETE_POST
 export const DELETE_POST = gql`
   mutation deletePost($_id: ID!) {
-    deletePost(_id: $id) {
+    deletePost(_id: $_id) {
       _id
       postText
       username
