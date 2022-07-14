@@ -10,6 +10,7 @@ export const QUERY_ALL_POSTS = gql`
       address
       secondary
       fullAddress
+      tags
       comments {
         _id
         commentBody

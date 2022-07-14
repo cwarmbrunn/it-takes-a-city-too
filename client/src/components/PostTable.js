@@ -14,18 +14,27 @@ const DatatablePage = () => {
   const getPosts = () => {
     if (loading) return null;
     if (error) return `Error! ${error}`;
-
-    for (var i = 0; i < data.length; i++) {
-      var name = data[i].locationName;
-      var location = data[i].address;
-      var tag = "";
-      var id = data[i]._id;
-      var tableData = [name, location, tag, id];
+    const tableData = []
+    for (var i = 0; i < data.allposts.length; i++) {
+      var tag =""
+      var name = data.allposts[i].locationName;
+      var location = data.allposts[i].address;
+      for(var x = 0;x < data.allposts[i].tags.length;x++){
+        console.log(x)
+        if (x !== data.allposts[i].tags.length-1){
+          
+      tag += data.allposts[i].tags[x] + "," ;
+        }
+        else{
+          tag += data.allposts[i].tags[x];
+        }
+      }
+      var id = data.allposts[i]._id;
+      tableData[i] = {name, location, tag, id};
     }
     return tableData;
   };
-
-  const newData = {
+  const tabledata = {
     columns: [
       {
         label: "Name",
@@ -41,7 +50,7 @@ const DatatablePage = () => {
       },
       {
         label: "Tags",
-        field: "tags",
+        field: "tag",
         sort: "asc",
         width: 200,
       },
@@ -55,7 +64,22 @@ const DatatablePage = () => {
     rows: getPosts(),
   };
 
-  return <MDBDataTable striped bordered small data={newData} />;
+  return (
+  <main>
+  <div className="flex-row justify-space-between">
+    <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
+      <h1 className="text-decoration-underline">Post</h1>
+      <MDBDataTable
+      striped
+      bordered
+      small
+      data={tabledata}
+    />
+    </div>
+  </div>
+</main>
+  
+  )
 };
 
 export default DatatablePage;
