@@ -38,7 +38,8 @@ const Header = () => {
                   {/* Logout Option */}
                   {/* TODO: Need to ensure the logout method works properly */}
                   <NavLink
-                    to="/logout"
+                    to="/logout" 
+                    onClick={Auth.logout}
                     className="nav-links text-decoration-none text-light p-2"
                   >
                     <li className="nav-item"> Logout</li>
