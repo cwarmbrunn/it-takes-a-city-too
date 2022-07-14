@@ -77,16 +77,16 @@ const Header = () => {
                 </>
               )}
 
-              <li className="nav-item p-2">
-                <a
+<a
                   className="nav-links text-decoration-none text-light"
                   href="https://buy.stripe.com/test_4gw2987Y5aldare288"
                   target="_blank"
                   rel="noreferrer"
                 >
+              <li className="nav-item p-2">
                   Donate
-                </a>
               </li>
+              </a>
             </ul>
           </nav>
       </nav>
