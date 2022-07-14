@@ -4,9 +4,6 @@ import React, { useState } from "react";
 // Import useMutation
 import { useMutation } from "@apollo/client";
 
-// Import LOGIN_USER from Mutations.js
-// import { LOGIN_USER } from "../utils/mutations";
-
 // Import ADD_POST from Mutations.js
 import { ADD_POST } from "../utils/mutations";
 
@@ -43,8 +40,8 @@ const PostPage = () => {
     try {
       const { data } = await addPost({ variables: { ...formState } });
       Auth.login(data.addPost.token);
-    } catch (e) {
-      console.log(e);
+    } catch (event) {
+      console.log(event);
     }
   };
 
@@ -63,6 +60,17 @@ const PostPage = () => {
                 type="text"
                 id="locationName"
                 value={formState.name}
+                onChange={handleChange}
+                required
+              />
+              {/* Form Input - Enter Username for Post */}
+              <input
+                className="form-input"
+                placeholder="Enter username for post"
+                name="username"
+                type="text"
+                id="username"
+                value={formState.username}
                 onChange={handleChange}
                 required
               />
@@ -99,9 +107,20 @@ const PostPage = () => {
                 onChange={handleChange}
                 required
               ></input>
+              {/* Form Input - Add Zip Code */}
+              <input
+                className="form-input"
+                placeholder="Enter Zip Code"
+                name="zipCode"
+                type="number"
+                id="zipCode"
+                value={formState.zipCode}
+                onChange={handleChange}
+                required
+              ></input>
               {/* Form Input - Enter Tags */}
               {/* Had to hardcode these  */}
-              <select name="dropdown" className="form-input" id="tags">
+              <select name="dropdown" className="form-input" id="tags" required>
                 <option value="Shelter" selected>
                   Shelter
                 </option>
