@@ -26,7 +26,7 @@ const PostPage = () => {
     city: "",
     state: "",
     zipCode: "",
-    tags: "",
+    tags: "Shelter",
   });
 
   formState.username = userData.username;
@@ -47,9 +47,10 @@ const PostPage = () => {
   const handlePostItem = async (event) => {
     event.preventDefault();
     console.log(formState);
+
     try {
       const { data } = await addPost({ variables: { ...formState } });
-      Auth.login(data.addPost.token);
+      window.location.assign("/add-post");
     } catch (event) {
       console.log(event);
     }
