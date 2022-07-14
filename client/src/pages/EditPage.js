@@ -35,12 +35,17 @@ const EditPage = () => {
     });
   };
 
+  function removeEmpty(obj) {
+    return Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null));
+  }
+
   // Submit Post
  const handlePostItem = async (event) => {
    event.preventDefault();
 
    try {
-     const { data } = await updatePost({ variables: {...formState }});
+    fixedState = removeEmpty(formState);
+     const { data } = await updatePost({ variables: {...fixedState }});
      window.location.assign("/edit-post");
     } catch (e) {
      console.log(e);
