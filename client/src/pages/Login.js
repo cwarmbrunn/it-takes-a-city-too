@@ -10,16 +10,39 @@ import Auth from "../utils/auth";
 // Set up Login
 
 const Login = () => {
-  const loggedIn = Auth.loggedIn();
 
   return (
     <main>
       <div className="flex-row justify-space-between">
         <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
           <h1 className="text-decoration-underline">Login!!</h1>
-          <p className="text-xl">
-          Oops, we couldn't find that page.{" "}
-          </p>
+          <form onSubmit={handleFormSubmit}>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="email">Email address:</label>
+          <input
+            placeholder="youremail@test.com"
+            name="email"
+            type="email"
+            id="email"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="pwd">Password:</label>
+          <input
+            placeholder="******"
+            name="password"
+            type="password"
+            id="pwd"
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="flex-row flex-end">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+
         </div>
         <div className="py-5 posts">{/* Posts to go here? */}</div>
       </div>
