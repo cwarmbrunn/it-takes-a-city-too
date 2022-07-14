@@ -1,6 +1,6 @@
 // Import React
 import React from "react";
-
+import { NavLink } from "react-router-dom";
 
 // Import Auth
 import Auth from "../utils/auth";
@@ -16,84 +16,82 @@ const Header = () => {
     <header className="bg-secondary mb-2 py-2 flex-row align-center">
       <div className="container flex-row justify-space-between-lg">
         <nav className="bg-gray-600">
-          {/* Set up functionality if user is logged in */}
-          {Auth.loggedIn() ? (
-            <>
-              {/* Set up navigation bar items*/}
+          <nav className="navbar navbar-expand-lg">
+            {/* Home Page */}
+            <NavLink
+              to="/"
+              className="nav-links text-decoration-none text-light p-2"
+            >
+              <h1 className="title-main">It Takes A City Too</h1>
+            </NavLink>
+            <ul className="navbar-nav">
 
-              <nav className="navbar navbar-expand-lg">
-                <ul className="navbar-nav">
-                  {/* Home Page */}
-                  <a className="nav-link text-decoration-none" href="/">
-                    It Takes A City Too
-                  </a>
+              {/* Donate */}
+              {/* Allows the user to access our donate button via Stripe */}
+              {Auth.loggedIn() ? (
+                <>
+                  {/* USER IS LOGGED IN */}
+
+                  {/* Profile Option */}
+                  {/* TODO: Need to display the user profile page */}
+                  <NavLink
+                    to="/profile"
+                    className="nav-links text-decoration-none text-light p-2"
+                  >
+                    <li className="nav-item"> Profile</li>
+                  </NavLink>
 
                   {/* Logout Option */}
-                  <li className="nav-item">
-                    <a className="nav-link text-decoration-none" href="/logout">
-                      {/* Enables the user to logout from their existing session */}
-                      Logout
-                    </a>
-                  </li>
-                  {/* Resources */}
-                  <li className="nav-item">
-                    <a
-                      className="nav-link text-decoration-none"
-                      href="/resources"
-                    >
-                      {/* Enables the user to view the resources page */}
-                      Resources{" "}
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </>
-          ) : (
-            <>
-              {/* If the user is not logged in - allow them to only see the following */}
-              <nav className="navbar navbar-expand-lg">
-                {/* Home Page */}
-                <a
-                  className="text-decoration-none text-light font-weight-bold"
-                  href="/"
-                >
-                  It Takes A City Too
-                </a>
-                <ul className="navbar-nav">
+                  {/* TODO: Need to ensure the logout method works properly */}
+                  <NavLink
+                    to="/"
+                    onClick={Auth.logout}
+                    className="nav-links text-decoration-none text-light p-2"
+                  >
+                    <li className="nav-item"> Logout</li>
+                  </NavLink>
+                </>
+              ) : (
+                <>
+                  {/* USER IS NOT LOGGED IN  */}
+                  {/* If the user is not logged in - allow them to only see the following */}
                   {/* Login */}
-                  <li className="nav-item ">
-                    <a className="nav-link text-decoration-none" href="/login">
-                      {/* Enables the user to login with existing credentials */}
-                      Login
-                    </a>
-                  </li>
+                  {/* Enables the user to login with existing credentials */}
+                  <NavLink
+                    to="/login"
+                    className="nav-links text-decoration-none text-light p-2"
+                  >
+                    <li className="nav-item">Log In</li>
+                  </NavLink>
+
                   {/* Sign Up */}
                   {/* Enables the user to sign up with existing credentials */}
-                  <li className="nav-item">
-                    <a
-                      className="nav-link text-decoration-none "
-                      href="/signup"
-                    >
-                      Sign Up
-                    </a>
-                  </li>
-                  {/* Resources */}
-                  {/* Allows the user to see the resources page */}
-                  <li className="nav-item">
-                    <a
-                      className="nav-link text-decoration-none"
-                      href="/resources"
-                    >
-                      Resources
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </>
-          )}
+                  <NavLink
+                    to="/signup"
+                    className="nav-links text-decoration-none text-light p-2"
+                  >
+                    <li className="nav-item">Sign Up</li>
+
+
+                  </NavLink>
+                </>
+              )}
+
+              <a
+                className="nav-links text-decoration-none text-light"
+                href="https://buy.stripe.com/test_4gw2987Y5aldare288"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <li className="nav-item p-2">
+                  Donate
+                </li>
+              </a>
+            </ul>
+          </nav>
         </nav>
       </div>
-    </header>
+    </header >
   );
 };
 

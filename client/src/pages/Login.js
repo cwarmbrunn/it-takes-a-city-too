@@ -5,13 +5,13 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 
 // Import LOGIN_USER from Mutations.js
-// import { LOGIN_USER } from "../utils/mutations";
+import { LOGIN_USER } from "../utils/mutations";
 
 // Import Auth
 import Auth from "../utils/auth";
 
 // Set up Login
-const Login = (props) => {
+const Login = () => {
   // Set up login formState
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN_USER);
@@ -20,15 +20,13 @@ const Login = (props) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+    setFormState({ ...formState, [name]: value, });
   };
 
   // Submit Form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log( {...formState} );
 
     try {
       const { data } = await login({
