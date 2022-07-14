@@ -5,13 +5,13 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 
 // Import LOGIN_USER from Mutations.js
-// import { LOGIN_USER } from "../utils/mutations";
+import { LOGIN_USER } from "../utils/mutations";
 
 // Import Auth
 import Auth from "../utils/auth";
 
 // Set up Login
-const Login = (props) => {
+const Login = () => {
   // Set up login formState
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN_USER);
@@ -20,15 +20,13 @@ const Login = (props) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+    setFormState({ ...formState, [name]: value });
   };
 
   // Submit Form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log({ ...formState });
 
     try {
       const { data } = await login({
@@ -50,7 +48,7 @@ const Login = (props) => {
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-md-6">
         <div className="card">
-          <h4 className="card-header">Login</h4>
+          <h4 className="card-header">Log In</h4>
           <div className="card-body">
             <form onSubmit={handleFormSubmit}>
               {/* Set up form input */}
@@ -63,6 +61,7 @@ const Login = (props) => {
                 id="email"
                 value={formState.email}
                 onChange={handleChange}
+                required
               />
               <input
                 className="form-input"
@@ -72,8 +71,9 @@ const Login = (props) => {
                 id="password"
                 value={formState.password}
                 onChange={handleChange}
+                required
               />
-              <button className="btn d-block w-100" type="submit">
+              <button className=" btn-block btn-primary" type="submit">
                 Submit
               </button>
             </form>

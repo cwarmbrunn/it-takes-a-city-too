@@ -8,7 +8,14 @@ import { Navigate, useParams } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 
 // TODO: KAIJAM - Import queries we'll need!
-
+import {
+  QUERY_ALL_POSTS,
+  QUERY_ALL_USERS,
+  QUERY_ONE_USER,
+  QUERY_RESOURCES,
+  QUERY_TAGS,
+  QUERY_ALL_LOCATIONS,
+} from "../utils/queries";
 // Import Auth
 import Auth from "../utils/auth";
 
