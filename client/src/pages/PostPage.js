@@ -9,12 +9,20 @@ import { ADD_POST } from "../utils/mutations";
 
 // Import Auth
 import Auth from "../utils/auth";
+// Import useQuery
+import { useQuery } from "@apollo/client";
+
+// Import Query CURRENT USER
+import { QUERY_CURRENT_USER } from "../utils/queries";
 
 const PostPage = () => {
+  const { loading, data } = useQuery(QUERY_CURRENT_USER);
+  // Set up userData
+  const userData = data?.me || {};
   const [formState, setFormState] = useState({
     postText: "",
     locationName: "",
-    username: "",
+    username: userData.username,
     address: "",
     city: "",
     state: "",
@@ -72,16 +80,6 @@ const PostPage = () => {
                 type="text"
                 id="postBody"
                 value={formState.postText}
-                onChange={handleChange}
-                required
-              />
-              <input
-                className="form-input"
-                placeholder="Enter username for post"
-                name="username"
-                type="text"
-                id="username"
-                value={formState.username}
                 onChange={handleChange}
                 required
               />
