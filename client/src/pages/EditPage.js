@@ -13,9 +13,7 @@ import Auth from "../utils/auth";
 const EditPage = () => {
 
   const [formState, setFormState] = useState({
-    name: "",
-    address: "",
-    tags: "",
+    _id: "",
   });
 
   const [updatePost, { error }] = useMutation(UPDATE_POST);
@@ -49,36 +47,16 @@ const EditPage = () => {
           <h4 className="card-header">Edit Post</h4>
           <div className="card-body">
             <form onSubmit={handlePostItem}>
-                {/* Form Input - Enter Location Address */}
-                <input
-                className="form-input"
-                placeholder="Enter Location Name"
-                name="name"
-                type="text"
-                id="locationName"
-                value={formState.name}
-                onChange={handleChange}
-                />
-                {/* Form Input - Enter Location Address */}
-                <input
-                className="form-input"
-                placeholder="Enter Address"
-                name="address"
-                type="text"
-                id="locationAddress"
-                value={formState.address}
-                onChange={handleChange}
-                />
-                {/* Form Input - Enter Tags */}
-                <input
-                className="form-input"
-                placeholder="Enter Tags"
-                name="tags"
-                type="text"
-                id="tags"
-                value={formState.tags}
-                onChange={handleChange}
-                />
+            {/* Form Input - Enter post ID */}
+            <input
+              className="form-input"
+              placeholder="Enter Post ID"
+              name="_id"
+              type="text"
+              id="_id"
+              value={formState.name}
+              onChange={handleChange}
+            />
                 {/* Submit newly edited Post button */}
                 <button className="btn d-block w-100" type="submit" style= {{ background: "orange" }}>
                 Submit
