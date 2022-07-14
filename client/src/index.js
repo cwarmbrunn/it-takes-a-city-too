@@ -14,13 +14,14 @@ import {
   QUERY_ALL_LOCATIONS,
 } from "./utils/queries";
 
-const $ = require("jquery");
+// const $ = require("jquery");
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
+
 // window.onload = function () {
 //   $(document).ready(function () {
 //     $("#myInput").on("keyup", function () {
