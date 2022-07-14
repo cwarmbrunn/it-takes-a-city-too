@@ -73,6 +73,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/add-post" element={<PostPage />} />
+              <Route path="/edit-post" element={<EditPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <DatatablePage />
