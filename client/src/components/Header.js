@@ -35,10 +35,20 @@ const Header = () => {
                     </h1>
                   </NavLink>
 
+                  {/* Profile Option */}
+                  {/* TODO: Need to display the user profile page */}
+                  <NavLink
+                    to="/profile" 
+                    onClick={Auth.logout}
+                    className="nav-links text-decoration-none text-light p-2"
+                  >
+                    <li className="nav-item"> Profile</li>
+                  </NavLink>
+
                   {/* Logout Option */}
                   {/* TODO: Need to ensure the logout method works properly */}
                   <NavLink
-                    to="/logout" 
+                    to="/" 
                     onClick={Auth.logout}
                     className="nav-links text-decoration-none text-light p-2"
                   >
