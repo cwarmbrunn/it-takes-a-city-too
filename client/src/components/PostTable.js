@@ -68,7 +68,7 @@ const DatatablePage = () => {
   <main>
   <div className="flex-row justify-space-between">
     <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
-      <h1 className="text-decoration-underline">About Us</h1>
+      <h1 className="text-decoration-underline">Post</h1>
       <MDBDataTable
       striped
       bordered
