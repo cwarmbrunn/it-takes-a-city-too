@@ -20,13 +20,13 @@ const Login = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    setFormState({ ...formState, [name]: value, });
+    setFormState({ ...formState, [name]: value });
   };
 
   // Submit Form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log( {...formState} );
+    console.log({ ...formState });
 
     try {
       const { data } = await login({
@@ -61,6 +61,7 @@ const Login = () => {
                 id="email"
                 value={formState.email}
                 onChange={handleChange}
+                required
               />
               <input
                 className="form-input"
@@ -70,6 +71,7 @@ const Login = () => {
                 id="password"
                 value={formState.password}
                 onChange={handleChange}
+                required
               />
               <button className=" btn-block btn-primary" type="submit">
                 Submit

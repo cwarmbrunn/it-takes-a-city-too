@@ -4,9 +4,6 @@ import React, { useState } from "react";
 // Import useMutation
 import { useMutation } from "@apollo/client";
 
-// Import LOGIN_USER from Mutations.js
-// import { LOGIN_USER } from "../utils/mutations";
-
 // Import UPDATE_POST from Mutations.js
 import { UPDATE_POST } from "../utils/mutations";
 
@@ -87,7 +84,7 @@ const EditPage = () => {
                 Submit
                 </button>
              </form>
-             {error && <div>Could not add post!</div>}
+             {error && <div className="text-danger">Could not add post!</div>}
           </div>
         </div>
       </div>
