@@ -46,7 +46,7 @@ const DeletePage = () => {
           <h4 className="card-header">Delete Post</h4>
           <div className="card-body">
             <form onSubmit={handlePostItem}>
-              {/* Form Input - Enter Location Address */}
+              {/* Form Input - Enter post ID */}
               <input
                 className="form-input"
                 placeholder="Enter Post ID"
@@ -57,7 +57,7 @@ const DeletePage = () => {
                 onChange={handleChange}
               />
 
-              {/* Submit newly edited Post button */}
+              {/* Submit newly deleted Post button */}
               <button
                 className="btn d-block w-100"
                 type="submit"

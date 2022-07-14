@@ -13,9 +13,7 @@ import Auth from "../utils/auth";
 const EditPage = () => {
 
   const [formState, setFormState] = useState({
-    name: "",
-    address: "",
-    tags: "",
+    id: "",
   });
 
   const [updatePost, { error }] = useMutation(UPDATE_POST);
