@@ -41,8 +41,8 @@ const EditPage = () => {
 
    try {
      const { data } = await updatePost({ variables: {...formState }});
-     Auth.login(data.addPost.token);
-   } catch (e) {
+     window.location.assign("/edit-post");
+    } catch (e) {
      console.log(e);
    }
  };
