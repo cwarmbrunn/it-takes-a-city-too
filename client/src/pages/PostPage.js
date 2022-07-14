@@ -7,7 +7,6 @@ import { useMutation } from "@apollo/client";
 // Import ADD_POST from Mutations.js
 import { ADD_POST } from "../utils/mutations";
 
-
 // Import Auth
 import Auth from "../utils/auth";
 
@@ -140,9 +139,10 @@ const PostPage = () => {
                 value={formState.tags}
                 onChange={handleChange}
               >
-                <option value="Shelter" selected>
-                  Shelter
+                <option disabled selected value>
+                  -- Select an Option --
                 </option>
+                <option value="Shelter">Shelter</option>
                 <option value="Food">Food</option>
                 <option value="Clothing">Clothing</option>
                 <option value="Employment">Employment</option>
