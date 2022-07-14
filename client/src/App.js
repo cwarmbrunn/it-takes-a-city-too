@@ -75,7 +75,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/add-post" element={<PostPage />} />
               <Route path="/edit-post" element={<EditPage />} />
-              <Route path="/delete-post" element={<DeletePage />}
+              <Route path="/delete-post" element={<DeletePage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <DatatablePage />
