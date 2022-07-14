@@ -45,11 +45,12 @@ const PostPage = () => {
 
   // Submit Post
   const handlePostItem = async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     console.log(formState);
+
     try {
       const { data } = await addPost({ variables: { ...formState } });
-      Auth.login(data.addPost.token);
+      // Auth.login(data.addPost.token);
     } catch (event) {
       console.log(event);
     }
