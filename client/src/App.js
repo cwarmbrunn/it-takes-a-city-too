@@ -1,7 +1,7 @@
 // Import React
 import React from "react";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // Import Router, Routes, and Route
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -32,6 +32,7 @@ import MyTable from "./components/PostTable";
 import PostPage from "./pages/PostPage";
 
 // PAGE END //
+import Profile from "./pages/Profile";
 
 // Set up App function
 function App() {
@@ -41,7 +42,7 @@ function App() {
         <Header />
         <div className="container">
           <PostPage />
-          // <MyTable/>
+          // <MyTable />
         </div>
         <Footer />
       </div>
