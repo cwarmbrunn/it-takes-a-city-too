@@ -18,7 +18,7 @@ const DatatablePage = () => {
     for (var i = 0; i < data.allposts.length; i++) {
       var name = data.allposts[i].locationName;
       var location = data.allposts[i].address;
-      var tag = "";
+      var tag = data.allposts[i].tags[0];
       var id = data.allposts[i]._id;
       tableData[i] = {name, location, tag, id};
     }
@@ -26,7 +26,7 @@ const DatatablePage = () => {
     return tableData;
   };
   console.log(getPosts());
-  const newData = {
+  const tabledata = {
     columns: [
       {
         label: "Name",
@@ -42,7 +42,7 @@ const DatatablePage = () => {
       },
       {
         label: "Tags",
-        field: "tags",
+        field: "tag",
         sort: "asc",
         width: 200,
       },
@@ -56,7 +56,22 @@ const DatatablePage = () => {
     rows: getPosts(),
   };
 
-  return <MDBDataTable striped bordered small data={newData} />;
+  return (
+  <main>
+  <div className="flex-row justify-space-between">
+    <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
+      <h1 className="text-decoration-underline">About Us</h1>
+      <MDBDataTable
+      striped
+      bordered
+      small
+      data={tabledata}
+    />
+    </div>
+  </div>
+</main>
+  
+  )
 };
 
 export default DatatablePage;
