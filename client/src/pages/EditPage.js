@@ -44,7 +44,7 @@ const EditPage = () => {
    event.preventDefault();
 
    try {
-    fixedState = removeEmpty(formState);
+    const fixedState = removeEmpty(formState);
      const { data } = await updatePost({ variables: {...fixedState }});
      window.location.assign("/edit-post");
     } catch (e) {
