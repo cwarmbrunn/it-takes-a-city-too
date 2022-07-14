@@ -99,4 +99,3 @@ export const QUERY_ALL_LOCATIONS = gql`
     }
   }
 `;
-

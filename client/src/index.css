@@ -35,14 +35,7 @@ color: black;
 -webkit-transition: color 1.5s;
  transition: color 1.5s;
 }
-/* Hover for Donate Button */
-.navbar > .nav-item > .nav-links:hover {
-  color: red;
 
-/* For older browsers */
--webkit-transition: color 1.5s;
- transition: color 1.5s;
-}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
