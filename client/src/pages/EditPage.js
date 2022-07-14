@@ -84,7 +84,7 @@ const EditPage = () => {
                 Submit
                 </button>
              </form>
-             {error && <div className="text-danger">Could not add post!</div>}
+             {error && <div className="text-danger">Could not edit post!</div>}
           </div>
         </div>
       </div>
