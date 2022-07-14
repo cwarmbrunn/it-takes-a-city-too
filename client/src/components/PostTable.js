@@ -55,7 +55,7 @@ const DatatablePage = () => {
     rows: getPosts(),
   };
 
-  // return <MDBDataTable striped bordered small data={newData} />;
+  return <MDBDataTable striped bordered small data={newData} />;
 };
 
 export default DatatablePage;
