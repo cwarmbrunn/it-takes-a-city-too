@@ -20,7 +20,7 @@ const DatatablePage = () => {
       var name = data.allposts[i].locationName;
       var location = data.allposts[i].address;
       for(var x = 0;x < data.allposts[i].tags.length;x++){
-        console.log(x)
+        
         if (x !== data.allposts[i].tags.length-1){
           
       tag += data.allposts[i].tags[x] + "," ;
