@@ -37,6 +37,7 @@ import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import PostPage from "./pages/PostPage";
 
+
 // PAGE END //
 
 const httpLink = createHttpLink({
