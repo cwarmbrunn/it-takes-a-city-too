@@ -36,9 +36,9 @@ import Profile from "./pages/Profile";
 import DatatablePage from "./components/PostTable";
 // PAGE END //
 
-const httpLink = createHttpLink({
-  uri: "/graphql",
-});
+// const httpLink = createHttpLink({
+//   uri: "/graphql",
+// });
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
@@ -51,7 +51,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  // link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
