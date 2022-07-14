@@ -12,7 +12,7 @@ Enhancing our "It Takes a City" app with some additional features - the upgraded
 
 **Live Site:**
 
-Heroku link is [here](LINK TBD)
+Heroku link is [here](https://it-takes-a-city-too.herokuapp.com/)
 
 ---
 
