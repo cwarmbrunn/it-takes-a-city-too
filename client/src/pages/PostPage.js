@@ -64,6 +64,7 @@ const PostPage = () => {
                 id="locationName"
                 value={formState.name}
                 onChange={handleChange}
+                required
               />
               {/* Form Input - Enter Location Address */}
               <input
@@ -74,6 +75,7 @@ const PostPage = () => {
                 id="locationAddress"
                 value={formState.address}
                 onChange={handleChange}
+                required
               />
               {/* Form Input - City */}
               <input
@@ -84,6 +86,7 @@ const PostPage = () => {
                 id="city"
                 value={formState.city}
                 onChange={handleChange}
+                required
               ></input>
               {/* Form Input - State */}
               <input
@@ -94,6 +97,7 @@ const PostPage = () => {
                 id="state"
                 value={formState.state}
                 onChange={handleChange}
+                required
               ></input>
               {/* Form Input - Enter Tags */}
               {/* Had to hardcode these  */}
