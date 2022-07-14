@@ -1,6 +1,6 @@
 import React from "react";
 
-import { MDBDataTableV5 } from "mdbreact";
+import { MDBDataTable } from "mdbreact";
 
 // import { data } from 'jquery';
 import { useQuery } from "@apollo/client";
@@ -26,7 +26,7 @@ const DatatablePage = () => {
     return tableData;
   };
   console.log(getPosts());
-  const [datatable, setDatatable] = React.useState({
+  const tabledata = {
     columns: [
       {
         label: "Name",
@@ -54,17 +54,23 @@ const DatatablePage = () => {
       },
     ],
     rows: getPosts(),
-  });
+  };
 
   return (
   <main>
   <div className="flex-row justify-space-between">
     <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
-      <h1 className="text-decoration-underline">Posts</h1>
-      <MDBDataTableV5 hover entriesOptions={[5, 20, 25]} entries={5} pagesAmount={4} data={datatable} />
+      <h1 className="text-decoration-underline">About Us</h1>
+      <MDBDataTable
+      striped
+      bordered
+      small
+      data={tabledata}
+    />
     </div>
   </div>
 </main>
+  
   )
 };
 
