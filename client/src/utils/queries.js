@@ -69,6 +69,31 @@ export const QUERY_ONE_USER = gql`
   }
 `;
 
+export const QUERY_CURRENT_USER = gql`
+  query {
+    me {
+      _id
+      username
+      email
+      posts {
+        _id
+        postText
+        username
+        locationName
+        address
+        secondary
+        fullAddress
+        tags
+        comments {
+          _id
+          commentBody
+          username
+        }
+      }
+    }
+  }
+`;
+
 export const QUERY_RESOURCES = gql`
   query {
     allposts {

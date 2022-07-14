@@ -4,15 +4,6 @@ import React, { useState } from "react";
 // Import Mutation
 import { useMutation } from "@apollo/client";
 
-import {
-  QUERY_ALL_POSTS,
-  QUERY_ALL_USERS,
-  QUERY_ONE_USER,
-  QUERY_RESOURCES,
-  QUERY_TAGS,
-  QUERY_ALL_LOCATIONS,
-} from "../utils/queries";
-
 // Import ADD_USER
 import { ADD_USER } from "../utils/mutations";
 
@@ -43,6 +34,7 @@ const Signup = () => {
   // Submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log( {...formState} );
 
     try {
       const { data } = await addUser({ variables: { ...formState } });

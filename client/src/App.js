@@ -29,16 +29,16 @@ import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-// import Signup from "./pages/Signup";
+import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
-// import Resources from "./pages/Resources";
-// import NotFound from "./pages/NotFound";
+import NotFound from "./pages/NotFound";
 import DatatablePage from "./components/PostTable";
+
 // PAGE END //
 
-// const httpLink = createHttpLink({
-//   uri: "/graphql",
-// });
+const httpLink = createHttpLink({
+  uri: "/graphql",
+});
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
@@ -51,7 +51,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  // link: authLink.concat(httpLink),
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
@@ -66,14 +66,12 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
-              {/* <Route path="/signup" element={<Signup />} /> */}
+              <Route path="/signup" element={<Signup />} />
               <Route path="/profile" element={<Profile />} />
-              {/* <Route path="/resources" element={<Resources />} /> */}
-              {/* <Route path="*" element={<NotFound />} /> */}
+              <Route path="*" element={<NotFound />} />
             </Routes>
+            <DatatablePage />
           </div>
-          <DatatablePage />
-
           <Footer />
         </div>
       </Router>
