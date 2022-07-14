@@ -25,7 +25,6 @@ const Home = () => {
   const { loading, data } = useQuery(QUERY_CURRENT_USER);
   const userData = data?.me || {};
 
-  // From Christina: Need to figure out how to insert logged in username - similar to how we did before
   return (
     <main>
       <div className="flex-row justify-space-between">
