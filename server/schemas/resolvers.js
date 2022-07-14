@@ -1,4 +1,4 @@
-const { User, Post } = require("../models");
+const { User, Post, Tag } = require("../models");
 
 const { AuthenticationError } = require("apollo-server-express");
 
@@ -19,9 +19,7 @@ const resolvers = {
     },
     // get all users
     users: async () => {
-      return User.find()
-        .select('-__v -password')
-        .populate('posts')
+      return User.find().select("-__v -password").populate("posts");
     },
     // Get a user by username
     user: async (parent, { username }) => {
@@ -31,7 +29,7 @@ const resolvers = {
     },
     // get all posts
     allposts: async () => {
-      return Post.find()
+      return Post.find();
     },
     posts: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -39,6 +37,9 @@ const resolvers = {
     },
     post: async (parent, { _id }) => {
       return Post.findOne({ _id });
+    },
+    tags: async () => {
+      return Tag.find();
     },
   },
   Mutation: {
@@ -94,6 +95,38 @@ const resolvers = {
         );
 
         return updatedPost;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
+    updatePost: async (parent, args, context) => {
+      if (context.user) {
+        const { _id, ...postToUpdate } = args;
+        console.log(postToUpdate);
+        const updatedPost = await Post.findByIdAndUpdate(
+          { _id: _id },
+          postToUpdate,
+          { new: true, runValidators: true }
+        );
+
+        return updatedPost;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
+    deletePost: async (parent, { _id }, context) => {
+      if (context.user) {
+        const post = await Post.findByIdAndDelete({ _id });
+
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $pull: { posts: post._id } },
+          { new: true }
+        );
+
+        return post;
       }
 
       throw new AuthenticationError("You need to be logged in!");
