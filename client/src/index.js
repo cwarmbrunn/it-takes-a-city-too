@@ -12,7 +12,7 @@ import {
   QUERY_RESOURCES,
   QUERY_TAGS,
   QUERY_ALL_LOCATIONS,
-} from "../utils/queries";
+} from "./utils/queries";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
