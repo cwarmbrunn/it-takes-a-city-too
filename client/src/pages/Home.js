@@ -30,7 +30,7 @@ const Home = () => {
       <div className="flex-row justify-space-between">
         {loggedIn ? (
           <div className="col-12 mb-3">
-            <h1 className="text-warning">Hello </h1> {userData.username}!{" "}
+            <h1 className="text-warning">Hello </h1> {userData.username}{" "}
           </div>
         ) : (
           <div className="col-12 mb-3">Hello Guest </div>
