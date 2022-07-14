@@ -16,16 +16,24 @@ const DatatablePage = () => {
     if (error) return `Error! ${error}`;
     const tableData = []
     for (var i = 0; i < data.allposts.length; i++) {
+      var tag =""
       var name = data.allposts[i].locationName;
       var location = data.allposts[i].address;
-      var tag = data.allposts[i].tags[0];
+      for(var x = 0;x < data.allposts[i].tags.length;x++){
+        console.log(x)
+        if (x !== data.allposts[i].tags.length-1){
+          
+      tag += data.allposts[i].tags[x] + "," ;
+        }
+        else{
+          tag += data.allposts[i].tags[x];
+        }
+      }
       var id = data.allposts[i]._id;
       tableData[i] = {name, location, tag, id};
     }
-    console.log(tableData);
     return tableData;
   };
-  console.log(getPosts());
   const tabledata = {
     columns: [
       {
