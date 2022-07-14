@@ -4,15 +4,6 @@ import React, { useState } from "react";
 // Import useMutation
 import { useMutation } from "@apollo/client";
 
-import {
-  QUERY_ALL_POSTS,
-  QUERY_ALL_USERS,
-  QUERY_ONE_USER,
-  QUERY_RESOURCES,
-  QUERY_TAGS,
-  QUERY_ALL_LOCATIONS,
-} from "../utils/queries";
-
 // Import LOGIN_USER from Mutations.js
 import { LOGIN_USER } from "../utils/mutations";
 
