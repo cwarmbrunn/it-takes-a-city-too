@@ -12,12 +12,13 @@ import Auth from "../utils/auth";
 
 const PostPage = () => {
   const [formState, setFormState] = useState({
-    name: "",
+    postText: "",
+    locationName: "",
     username: "",
     address: "",
     city: "",
     state: "",
-    zipcode: "",
+    zipCode: "",
     tags: "",
   });
 
@@ -36,7 +37,7 @@ const PostPage = () => {
   // Submit Post
   const handlePostItem = async (event) => {
     event.preventDefault();
-
+    console.log(formState);
     try {
       const { data } = await addPost({ variables: { ...formState } });
       Auth.login(data.addPost.token);
@@ -56,14 +57,24 @@ const PostPage = () => {
               <input
                 className="form-input"
                 placeholder="Enter Location Name"
-                name="name"
+                name="locationName"
                 type="text"
                 id="locationName"
-                value={formState.name}
+                value={formState.locationName}
                 onChange={handleChange}
                 required
               />
               {/* Form Input - Enter Username for Post */}
+              <input
+                className="form-input"
+                placeholder="Enter Location Description"
+                name="postText"
+                type="text"
+                id="postBody"
+                value={formState.postText}
+                onChange={handleChange}
+                required
+              />
               <input
                 className="form-input"
                 placeholder="Enter username for post"
@@ -120,7 +131,14 @@ const PostPage = () => {
               ></input>
               {/* Form Input - Enter Tags */}
               {/* Had to hardcode these  */}
-              <select name="dropdown" className="form-input" id="tags" required>
+              <select
+                name="tags"
+                className="form-input"
+                id="tags"
+                required
+                value={formState.tags}
+                onChange={handleChange}
+              >
                 <option value="Shelter" selected>
                   Shelter
                 </option>
