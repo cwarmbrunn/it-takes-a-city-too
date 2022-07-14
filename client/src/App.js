@@ -36,6 +36,8 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import PostPage from "./pages/PostPage";
+import EditPage from "./pages/EditPage";
+import DeletePage from "./pages/DeletePage";
 
 
 // PAGE END //
@@ -73,6 +75,8 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/add-post" element={<PostPage />} />
+              <Route path="/edit-post" element={<EditPage />} />
+              <Route path="/delete-post" element={<DeletePage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <DatatablePage />
