@@ -14,7 +14,6 @@ import { useQuery } from "@apollo/client";
 
 // Import Query CURRENT USER
 import { QUERY_CURRENT_USER } from "../utils/queries";
-import { UserInputError } from "apollo-server-express";
 
 const PostPage = () => {
   const { loading, data } = useQuery(QUERY_CURRENT_USER);
