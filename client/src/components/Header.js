@@ -67,7 +67,6 @@ const Header = () => {
                   >
                     <li className="nav-item">Edit Post</li>
                   </NavLink>
-                </>
 
                 {/* Delete Post */}
                 {/* Allows the logged in user to delete a post  */}
