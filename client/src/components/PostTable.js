@@ -2,7 +2,7 @@ import React from 'react';
 
 import { MDBDataTable } from 'mdbreact';
 
-import { data } from 'jquery';
+// import { data } from 'jquery';
 import { useQuery } from '@apollo/client';
 import { QUERY_ALL_POSTS } from "../utils/queries";
 
@@ -11,7 +11,7 @@ import Auth from "../utils/auth";
 
 var i;
 var tableData
-function getPosts({}) {
+function GetPosts() {
   const { loading, error, data } = useQuery(QUERY_ALL_POSTS);
   if (loading) return null;
   if (error) return `Error! ${error}`;
@@ -30,7 +30,7 @@ function getPosts({}) {
   }
   return tableData;
 }
-getPosts();
+GetPosts();
 const DatatablePage = () => {
   const data = {
     columns: [
