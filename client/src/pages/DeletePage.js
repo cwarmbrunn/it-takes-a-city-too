@@ -91,3 +91,6 @@ const DeletePage = () => {
     </main>
   );
 }
+
+// export DeletePage
+export default DeletePage;
