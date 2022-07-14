@@ -18,7 +18,7 @@ const DatatablePage = () => {
     for (var i = 0; i < data.allposts.length; i++) {
       var name = data.allposts[i].locationName;
       var location = data.allposts[i].address;
-      var tag = "";
+      var tag = data.allposts[i].tags[0];
       var id = data.allposts[i]._id;
       tableData[i] = {name, location, tag, id};
     }
@@ -42,7 +42,7 @@ const DatatablePage = () => {
       },
       {
         label: "Tags",
-        field: "tags",
+        field: "tag",
         sort: "asc",
         width: 200,
       },
