@@ -63,6 +63,7 @@ const EditPage = () => {
               id="_id"
               value={formState.name}
               onChange={handleChange}
+              required
             />
             {/* Form Input - Enter Location Name */}
             <input
@@ -73,7 +74,6 @@ const EditPage = () => {
               id="locationName"
               value={formState.locationName}
               onChange={handleChange}
-              required
             />
             {/* Form Input - Enter Username for Post */}
             <input
@@ -84,7 +84,6 @@ const EditPage = () => {
               id="postBody"
               value={formState.postText}
               onChange={handleChange}
-              required
             />
             {/* Form Input - Enter Location Address */}
             <input
@@ -95,7 +94,6 @@ const EditPage = () => {
               id="locationAddress"
               value={formState.address}
               onChange={handleChange}
-              required
             />
             {/* Form Input - City */}
             <input
@@ -106,7 +104,6 @@ const EditPage = () => {
               id="city"
               value={formState.city}
               onChange={handleChange}
-              required
             ></input>
             {/* Form Input - State */}
             <input
@@ -117,7 +114,6 @@ const EditPage = () => {
               id="state"
               value={formState.state}
               onChange={handleChange}
-              required
             ></input>
             {/* Form Input - Add Zip Code */}
             <input
@@ -128,7 +124,6 @@ const EditPage = () => {
               id="zipCode"
               value={formState.zipCode}
               onChange={handleChange}
-              required
             ></input>
             {/* Form Input - Enter Tags */}
             {/* Had to hardcode these  */}
