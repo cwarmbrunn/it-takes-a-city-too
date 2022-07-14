@@ -14,17 +14,18 @@ const DatatablePage = () => {
   const getPosts = () => {
     if (loading) return null;
     if (error) return `Error! ${error}`;
-
-    for (var i = 0; i < data.length; i++) {
-      var name = data[i].locationName;
-      var location = data[i].address;
+    const tableData = []
+    for (var i = 0; i < data.allposts.length; i++) {
+      var name = data.allposts[i].locationName;
+      var location = data.allposts[i].address;
       var tag = "";
-      var id = data[i]._id;
-      var tableData = [name, location, tag, id];
+      var id = data.allposts[i]._id;
+      tableData[i] = {name, location, tag, id};
     }
+    console.log(tableData);
     return tableData;
   };
-
+  console.log(getPosts());
   const newData = {
     columns: [
       {
