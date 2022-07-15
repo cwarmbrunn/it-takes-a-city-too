@@ -9,18 +9,27 @@ import { ADD_POST } from "../utils/mutations";
 
 // Import Auth
 import Auth from "../utils/auth";
+// Import useQuery
+import { useQuery } from "@apollo/client";
+
+// Import Query CURRENT USER
+import { QUERY_CURRENT_USER } from "../utils/queries";
 
 const PostPage = () => {
+  const { loading, data } = useQuery(QUERY_CURRENT_USER);
+  // Set up userData
+  const userData = data?.me || {};
   const [formState, setFormState] = useState({
     postText: "",
     locationName: "",
-    username: "",
     address: "",
     city: "",
     state: "",
     zipCode: "",
-    tags: "",
+    tags: "Shelter",
   });
+
+  formState.username = userData.username;
 
   const [addPost, { error }] = useMutation(ADD_POST);
 
@@ -38,9 +47,10 @@ const PostPage = () => {
   const handlePostItem = async (event) => {
     event.preventDefault();
     console.log(formState);
+
     try {
       const { data } = await addPost({ variables: { ...formState } });
-      Auth.login(data.addPost.token);
+      window.location.assign("/add-post");
     } catch (event) {
       console.log(event);
     }
@@ -72,16 +82,6 @@ const PostPage = () => {
                 type="text"
                 id="postBody"
                 value={formState.postText}
-                onChange={handleChange}
-                required
-              />
-              <input
-                className="form-input"
-                placeholder="Enter username for post"
-                name="username"
-                type="text"
-                id="username"
-                value={formState.username}
                 onChange={handleChange}
                 required
               />
