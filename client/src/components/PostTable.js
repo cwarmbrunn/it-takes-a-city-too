@@ -14,30 +14,25 @@ const DatatablePage = () => {
   const getPosts = () => {
     if (loading) return null;
     if (error) return `Error! ${error}`;
-    const tableData = []
+    const tableData = [];
     for (var i = 0; i < data.allposts.length; i++) {
-      var tag =""
+      var tag = "";
       var name = data.allposts[i].locationName;
       var location = data.allposts[i].address;
       var postText = data.allposts[i].postText;
-      console.log("hi")
-      console.log(data.allposts[i].postText)
+      console.log("hi");
+      console.log(data.allposts[i].postText);
       var username = data.allposts[i].username;
-      for(var x = 0;x < data.allposts[i].tags.length;x++){
-        
-        if (x !== data.allposts[i].tags.length-1){
-          
-      tag += data.allposts[i].tags[x] + "," ;
-        }
-        else{
+      for (var x = 0; x < data.allposts[i].tags.length; x++) {
+        if (x !== data.allposts[i].tags.length - 1) {
+          tag += data.allposts[i].tags[x] + ",";
+        } else {
           tag += data.allposts[i].tags[x];
         }
       }
       var id = data.allposts[i]._id;
 
-
-      tableData[i] = {name, location, tag, id,postText,username};
-
+      tableData[i] = { name, location, tag, id, postText, username };
     }
     return tableData;
   };
@@ -79,32 +74,20 @@ const DatatablePage = () => {
         sort: "asc",
         width: 200,
       },
-      {
-        label: "User",
-        field: "username",
-        sort: "asc",
-        width: 200,
-      },
     ],
     rows: getPosts(),
   };
 
   return (
-  <main>
-  <div className="flex-row justify-space-between">
-    <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
-      <h1 className="text-decoration-underline">Post</h1>
-      <MDBDataTable
-      striped
-      bordered
-      small
-      data={tabledata}
-    />
-    </div>
-  </div>
-</main>
-  
-  )
+    <main>
+      <div className="flex-row justify-space-between">
+        <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
+          <h1 className="text-decoration-underline">Post</h1>
+          <MDBDataTable striped bordered small data={tabledata} />
+        </div>
+      </div>
+    </main>
+  );
 };
 
 export default DatatablePage;
