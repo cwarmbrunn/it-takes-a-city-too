@@ -10,7 +10,13 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed"
   },
-  "repository": {
+
+
+"engines":{
+  "node": "18.4.0"
+}, 
+
+"repository": {
     "type": "git",
     "url": "git+https://github.com/cwarmbrunn/it-takes-a-city-too.git"
   },
