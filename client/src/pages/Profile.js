@@ -16,7 +16,7 @@ import PostList from '../components/PostList';
 const Profile = (props) => {
   const { username: userParam } = useParams();
   const loggedIn = Auth.loggedIn();
-  const { loading, data } = useQuery(userParam? QUERY_ONE_USER : QUERY_CURRENT_USER, {
+  const { loading, data } = useQuery(userParam ? QUERY_ONE_USER : QUERY_CURRENT_USER, {
     variables: { username: userParam }
   });
   // assign userdata to the current user or linked user or an empty array based on response and params
@@ -34,23 +34,44 @@ const Profile = (props) => {
   }
 
   // If user is not logged in, display the following content
+  if (!userParam && (Auth.loggedIn() === false)) {
+    return (
+      <main>
+        <div className="flex-row justify-space-between">
+          {loggedIn ? <div className="col-12 mb-3">Hello {Auth.getProfile().data.username} </div> : <div className="col-12 mb-3">Hello Guest </div>}
+          <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
+            <h1 className="text-decoration-underline">Log In!</h1>
+            <div className="card mb-3">
+              <p className="card-header">Please Log In or Sign Up.</p>
+              <p className="text-xl card-body">
+                You need to be logged in to see this! Use the navigation links above to log in or sign up! {" "}
+              </p>
+            </div>
+          </div>
+          <div className="py-5 posts">{/* Posts to go here? */}</div>
+        </div>
+      </main>
+    );
+  }
+
+  // If the profile doesn't exiat, display the following content
   if (!userData?.username) {
     return (
       <main>
-      <div className="flex-row justify-space-between">
-        {loggedIn ? <div className="col-12 mb-3">Hello {Auth.getProfile().data.username} </div> : <div className="col-12 mb-3">Hello Guest </div> }
-        <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
-          <h1 className="text-decoration-underline">Log In!</h1>
-          <div className="card mb-3">
-          <p className="card-header">Please Log In or Sign Up.</p>
-          <p className="text-xl card-body">
-            You need to be logged in to see this! Use the navigation links above to log in or sign up! {" "}
-          </p>
+        <div className="flex-row justify-space-between">
+          {loggedIn ? <div className="col-12 mb-3">Hello {Auth.getProfile().data.username} </div> : <div className="col-12 mb-3">Hello Guest </div>}
+          <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
+            <h1 className="text-decoration-underline">No Such User!</h1>
+            <div className="card mb-3">
+              <p className="card-header">{userParam} does not exist.</p>
+              <p className="text-xl card-body">
+                Sorry, you're looking for someone that ain't here! {" "}
+              </p>
+            </div>
           </div>
+          <div className="py-5 posts">{/* Posts to go here? */}</div>
         </div>
-        <div className="py-5 posts">{/* Posts to go here? */}</div>
-      </div>
-    </main>
+      </main>
     );
   }
 
@@ -66,11 +87,11 @@ const Profile = (props) => {
   return (
     <main>
       <div className="flex-row justify-space-between">
-        {loggedIn ? <div className="col-12 mb-3">Hello {Auth.getProfile().data.username} </div> : <div className="col-12 mb-3">Hello Guest </div> }
+        {loggedIn ? <div className="col-12 mb-3">Hello {Auth.getProfile().data.username} </div> : <div className="col-12 mb-3">Hello Guest </div>}
         <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
           <h1 className="text-decoration-underline">{userData.username}'s Profile!</h1>
           <p className="text-xl">
-          <PostList posts={userData.posts} title={`${userData.username}'s thoughts...`} />
+            <PostList posts={userData.posts} title={`${userData.username} `} />
           </p>
         </div>
         <div className="py-5 posts">{/* Posts to go here? */}</div>
