@@ -11,6 +11,10 @@ import Auth from "../utils/auth";
 const DatatablePage = () => {
   const { loading, error, data } = useQuery(QUERY_ALL_POSTS);
 
+  if (loading) {
+    return <div>Loading...hang tight!</div>;
+  }
+
   const getPosts = () => {
     if (loading) return null;
     if (error) return `Error! ${error}`;
@@ -25,7 +29,7 @@ const DatatablePage = () => {
       var username = data.allposts[i].username;
       for (var x = 0; x < data.allposts[i].tags.length; x++) {
         if (x !== data.allposts[i].tags.length - 1) {
-          tag += data.allposts[i].tags[x] + ",";
+          tag += data.allposts[i].tags[x] + ", ";
         } else {
           tag += data.allposts[i].tags[x];
         }
