@@ -60,6 +60,7 @@ export const QUERY_ONE_USER = gql`
         secondary
         fullAddress
         tags
+        commentCount
         comments {
           _id
           commentBody
@@ -85,6 +86,7 @@ export const QUERY_CURRENT_USER = gql`
         secondary
         fullAddress
         tags
+        commentCount
         comments {
           _id
           commentBody

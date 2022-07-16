@@ -11,7 +11,7 @@ const NotFound = () => {
   return (
     <main>
       <div className="flex-row justify-space-between">
-        {loggedIn ? <div className="col-12 mb-3">Hello {userData.username} </div> : <div className="col-12 mb-3">Hello Guest </div> }
+        {loggedIn ? <div className="col-12 mb-3">Hello {Auth.getProfile().data.username} </div> : <div className="col-12 mb-3">Hello Guest </div> }
         <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
           <h1 className="text-decoration-underline">Not Found!</h1>
           <p className="text-xl">
