@@ -33,15 +33,26 @@ const Profile = (props) => {
     return <div>Loading...hang tight!</div>;
   }
 
-  // // If user is not logged in, display the following content
-  // if (!user?.username) {
-  //   return (
-  //     <h2>
-  //       You need to be logged in to see this! Use the navigation links above to
-  //       sign up or log in!
-  //     </h2>
-  //   );
-  // }
+  // If user is not logged in, display the following content
+  if (!userData?.username) {
+    return (
+      <main>
+      <div className="flex-row justify-space-between">
+        {loggedIn ? <div className="col-12 mb-3">Hello {Auth.getProfile().data.username} </div> : <div className="col-12 mb-3">Hello Guest </div> }
+        <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
+          <h1 className="text-decoration-underline">Log In!</h1>
+          <div className="card mb-3">
+          <p className="card-header">Please Log In or Sign Up.</p>
+          <p className="text-xl card-body">
+            You need to be logged in to see this! Use the navigation links above to log in or sign up! {" "}
+          </p>
+          </div>
+        </div>
+        <div className="py-5 posts">{/* Posts to go here? */}</div>
+      </div>
+    </main>
+    );
+  }
 
   const handleClick = async () => {
     try {
