@@ -40,16 +40,6 @@ const Header = () => {
                     <li className="nav-item"> Profile</li>
                   </NavLink>
 
-                  {/* Logout Option */}
-                  {/* TODO: Need to ensure the logout method works properly */}
-                  <NavLink
-                    to="/"
-                    onClick={Auth.logout}
-                    className="nav-links text-decoration-none text-light p-2"
-                  >
-                    <li className="nav-item"> Logout</li>
-                  </NavLink>
-
                   {/* Add Post */}
                   {/* Allows the logged in user to create a post  */}
                   <NavLink
@@ -75,6 +65,16 @@ const Header = () => {
                     className="nav-links text-decoration-none text-light p-2"
                   >
                     <li className="nav-item">Delete Post</li>
+                  </NavLink>
+
+                  {/* Logout Option */}
+                  {/* TODO: Need to ensure the logout method works properly */}
+                  <NavLink
+                    to="/"
+                    onClick={Auth.logout}
+                    className="nav-links text-decoration-none text-light p-2"
+                  >
+                    <li className="nav-item"> Logout</li>
                   </NavLink>
                 </>
               ) : (

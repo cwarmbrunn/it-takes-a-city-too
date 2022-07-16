@@ -85,6 +85,7 @@ const DatatablePage = () => {
           <h1 className="text-decoration-underline">Post</h1>
           <MDBDataTable striped bordered small data={tabledata} />
         </div>
+        <div className="py-5 posts">{/* Posts to go here? */}</div>
       </div>
     </main>
   );

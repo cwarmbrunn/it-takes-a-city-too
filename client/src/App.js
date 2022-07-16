@@ -82,7 +82,6 @@ function App() {
               <Route path="/delete-post" element={<DeletePage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
-            <DatatablePage />
           </div>
           <Footer />
         </div>
