@@ -29,7 +29,7 @@ const PostList = ({ posts, title }) => {
               <p className="mb-0">{post.postText}</p>
               <p className="mb-0">
                 Comments: {post.commentCount} - {' '}
-                <Link to={`/thought/${post._id}`}>
+                <Link to={`/post/${post._id}`}>
                 {post.commentCount ? 'See' : 'Start'} the discussion!
                 </Link> 
               </p>
