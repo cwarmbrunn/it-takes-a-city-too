@@ -34,6 +34,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
+import SinglePost from "./pages/SinglePost";
 import NotFound from "./pages/NotFound";
 import PostPage from "./pages/PostPage";
 import EditPage from "./pages/EditPage";
@@ -77,6 +78,7 @@ function App() {
                 <Route path=":username" element={<Profile />} />
                 <Route path="" element={<Profile />} />
               </Route>
+              <Route path="/post/:id" element={<SinglePost />} />
               <Route path="/add-post" element={<PostPage />} />
               <Route path="/edit-post" element={<EditPage />} />
               <Route path="/delete-post" element={<DeletePage />} />

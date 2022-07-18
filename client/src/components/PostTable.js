@@ -1,6 +1,7 @@
 import React from "react";
 
 import { MDBDataTable } from "mdbreact";
+import { Link, useParams } from "react-router-dom";
 
 // import { data } from 'jquery';
 import { useQuery } from "@apollo/client";
@@ -34,14 +35,22 @@ const DatatablePage = () => {
           tag += data.allposts[i].tags[x];
         }
       }
-      var id = data.allposts[i]._id;
+      var id = (
+        <Link to={`/post/${data.allposts[i]._id}`} style={{ fontWeight: 700 }} className="text-dark" >View</Link>
+        );
 
-      tableData[i] = { name, location, tag, id, postText, username };
+      tableData[i] = { id, name, location, postText, tag, username };
     }
     return tableData;
   };
   const tabledata = {
     columns: [
+      {
+        label: "Post",
+        field: "id",
+        sort: "asc",
+        width: 200,
+      },
       {
         label: "Name",
         field: "name",
@@ -55,22 +64,16 @@ const DatatablePage = () => {
         width: 270,
       },
       {
-        label: "ID",
-        field: "id",
+        label: "Post Text",
+        field: "postText",
         sort: "asc",
-        width: 200,
+        width: 400,
       },
       {
         label: "Tags",
         field: "tag",
         sort: "asc",
         width: 200,
-      },
-      {
-        label: "Post Text",
-        field: "postText",
-        sort: "asc",
-        width: 400,
       },
       {
         label: "User",
