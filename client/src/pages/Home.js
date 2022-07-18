@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 // Import Auth
 import Auth from "../utils/auth";
+import DatatablePage from '../components/PostTable';
 
 // Import useQuery
 import { useQuery } from "@apollo/client";
@@ -26,26 +27,29 @@ const Home = () => {
   const userData = data?.me || {};
 
   return (
-    <main>
-      <div className="flex-row justify-space-between">
-        {loggedIn ? (
-          <div className="col-12 mb-3">
-            <h1 className="text-warning">Hello </h1> {userData.username}{" "}
+    <>
+      <main>
+        <div className="flex-row justify-space-between">
+          {loggedIn ? (
+            <div className="col-12 mb-3">
+              Hello {Auth.getProfile().data.username}{" "}
+            </div>
+          ) : (
+            <div className="col-12 mb-3">Hello Guest </div>
+          )}
+          <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
+            <h1 className="text-decoration-underline">About Us</h1>
+            <p className="text-xl">
+              We wanted to create a space for folks to connect and share resources
+              in their city. Share a resource, leave a comment about one posted,
+              and remember: it takes a city!{" "}
+            </p>
           </div>
-        ) : (
-          <div className="col-12 mb-3">Hello Guest </div>
-        )}
-        <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
-          <h1 className="text-decoration-underline">About Us</h1>
-          <p className="text-xl">
-            We wanted to create a space for folks to connect and share resources
-            in their city. Share a resource, leave a comment about one posted,
-            and remember: it takes a city!{" "}
-          </p>
+          <div className="py-5 posts">{/* Posts to go here? */}</div>
         </div>
-        <div></div>
-      </div>
-    </main>
+      </main>
+      <DatatablePage />
+    </>
   );
 };
 

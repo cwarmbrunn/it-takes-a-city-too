@@ -1,6 +1,7 @@
 import React from "react";
 
 import { MDBDataTable } from "mdbreact";
+import { Link, useParams } from "react-router-dom";
 
 // import { data } from 'jquery';
 import { useQuery } from "@apollo/client";
@@ -10,6 +11,10 @@ import Auth from "../utils/auth";
 
 const DatatablePage = () => {
   const { loading, error, data } = useQuery(QUERY_ALL_POSTS);
+
+  if (loading) {
+    return <div>Loading...hang tight!</div>;
+  }
 
   const getPosts = () => {
     if (loading) return null;
@@ -25,19 +30,27 @@ const DatatablePage = () => {
       var username = data.allposts[i].username;
       for (var x = 0; x < data.allposts[i].tags.length; x++) {
         if (x !== data.allposts[i].tags.length - 1) {
-          tag += data.allposts[i].tags[x] + ",";
+          tag += data.allposts[i].tags[x] + ", ";
         } else {
           tag += data.allposts[i].tags[x];
         }
       }
-      var id = data.allposts[i]._id;
+      var id = (
+        <Link to={`/post/${data.allposts[i]._id}`} style={{ fontWeight: 700 }} className="text-dark" >View</Link>
+        );
 
-      tableData[i] = { name, location, tag, id, postText, username };
+      tableData[i] = { id, name, location, postText, tag, username };
     }
     return tableData;
   };
   const tabledata = {
     columns: [
+      {
+        label: "Post",
+        field: "id",
+        sort: "asc",
+        width: 200,
+      },
       {
         label: "Name",
         field: "name",
@@ -51,22 +64,16 @@ const DatatablePage = () => {
         width: 270,
       },
       {
-        label: "ID",
-        field: "id",
+        label: "Post Text",
+        field: "postText",
         sort: "asc",
-        width: 200,
+        width: 400,
       },
       {
         label: "Tags",
         field: "tag",
         sort: "asc",
         width: 200,
-      },
-      {
-        label: "Post Text",
-        field: "postText",
-        sort: "asc",
-        width: 400,
       },
       {
         label: "User",
@@ -85,6 +92,7 @@ const DatatablePage = () => {
           <h1 className="text-decoration-underline">Post</h1>
           <MDBDataTable striped bordered small data={tabledata} />
         </div>
+        <div className="py-5 posts">{/* Posts to go here? */}</div>
       </div>
     </main>
   );

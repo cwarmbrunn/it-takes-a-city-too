@@ -20,6 +20,32 @@ export const QUERY_ALL_POSTS = gql`
   }
 `;
 
+export const QUERY_ONE_POST = gql`
+  query Post($id: ID!) {
+    post(_id: $id) {
+      _id
+      postText
+      createdAt
+      username
+      locationName
+      address
+      secondary
+      city
+      state
+      zipCode
+      fullAddress
+      tags
+      commentCount
+      comments {
+        _id
+        commentBody
+        createdAt
+        username
+      }
+    }
+  }
+`;
+
 export const QUERY_ALL_USERS = gql`
   query {
     users {
@@ -60,6 +86,7 @@ export const QUERY_ONE_USER = gql`
         secondary
         fullAddress
         tags
+        commentCount
         comments {
           _id
           commentBody
@@ -85,6 +112,7 @@ export const QUERY_CURRENT_USER = gql`
         secondary
         fullAddress
         tags
+        commentCount
         comments {
           _id
           commentBody
