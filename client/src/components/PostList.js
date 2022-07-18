@@ -5,7 +5,7 @@ const PostList = ({ posts, title }) => {
   if (!posts.length) {
     return (
           <div className="card mb-3">
-          <p className="card-header">{title} has no posts.</p>
+          <p className="card-header">{title} currently has no suggestions.</p>
           <p className="text-xl card-body">
             You can't see what they haven't done! {" "}
           </p>

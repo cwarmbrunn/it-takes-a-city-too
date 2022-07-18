@@ -71,7 +71,7 @@ const Profile = (props) => {
         <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
           <h1 className="text-decoration-underline">{userData.username}'s Profile!</h1>
           <p className="text-xl">
-          <PostList posts={userData.posts} title={`${userData.username}'s thoughts...`} />
+          <PostList posts={userData.posts} title={`${userData.username} `} />
           </p>
         </div>
         <div className="py-5 posts">{/* Posts to go here? */}</div>
