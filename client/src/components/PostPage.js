@@ -50,15 +50,15 @@ const PostPage = () => {
 
     try {
       const { data } = await addPost({ variables: { ...formState } });
-      window.location.assign("/add-post");
+      window.location.assign("/profile");
     } catch (event) {
       console.log(event);
     }
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-md-6">
+    <div className="flex-row justify-center mb-4">
+      <div className="col-12 col-md-12">
         <div className="card">
           <h4 className="card-header">Add a Resource</h4>
           <div className="card-body">
@@ -161,7 +161,7 @@ const PostPage = () => {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 

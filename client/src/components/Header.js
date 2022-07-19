@@ -40,15 +40,6 @@ const Header = () => {
                     <li className="nav-item"> Profile</li>
                   </NavLink>
 
-                  {/* Add Post */}
-                  {/* Allows the logged in user to create a post  */}
-                  <NavLink
-                    to="/add-post"
-                    className="nav-links text-decoration-none text-light p-2"
-                  >
-                    <li className="nav-item">Add Post</li>
-                  </NavLink>
-
                   {/* Edit Post */}
                   {/* Allows the logged in user to edit a post  */}
                   <NavLink

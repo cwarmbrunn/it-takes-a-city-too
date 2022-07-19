@@ -12,11 +12,12 @@ import { QUERY_ONE_USER, QUERY_CURRENT_USER } from "../utils/queries";
 // Import Auth
 import Auth from "../utils/auth";
 import PostList from '../components/PostList';
+import PostPage from "../components/PostPage";
 
 const Profile = (props) => {
   const { username: userParam } = useParams();
   const loggedIn = Auth.loggedIn();
-  const { loading, data } = useQuery(userParam? QUERY_ONE_USER : QUERY_CURRENT_USER, {
+  const { loading, data } = useQuery(userParam ? QUERY_ONE_USER : QUERY_CURRENT_USER, {
     variables: { username: userParam }
   });
   // assign userdata to the current user or linked user or an empty array based on response and params
@@ -65,18 +66,29 @@ const Profile = (props) => {
   };
 
   return (
-    <main>
-      <div className="flex-row justify-space-between">
-        {loggedIn ? <div className="col-12 mb-3">Hello {Auth.getProfile().data.username} </div> : <div className="col-12 mb-3">Hello Guest </div> }
-        <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
-          <h1 className="text-decoration-underline">{userData.username}'s Profile!</h1>
-          <p className="text-xl">
-          <PostList posts={userData.posts} title={`${userData.username} `} />
-          </p>
+    <>
+      <main>
+        <div className="flex-row justify-space-between">
+          {loggedIn ? <div className="col-12 mb-3">Hello {Auth.getProfile().data.username} </div> : <div className="col-12 mb-3">Hello Guest </div>}
+          <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
+            <PostPage />
+          </div>
+          <div className="py-5 posts">{/* Posts to go here? */}</div>
         </div>
-        <div className="py-5 posts">{/* Posts to go here? */}</div>
-      </div>
-    </main>
+      </main>
+
+      <main>
+        <div className="flex-row justify-space-between">
+          <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
+            <h1 className="text-decoration-underline">{userData.username}'s Profile!</h1>
+            <p className="text-xl">
+              <PostList posts={userData.posts} title={`${userData.username} `} />
+            </p>
+          </div>
+          <div className="py-5 posts">{/* Posts to go here? */}</div>
+        </div>
+      </main>
+    </>
   );
 
 };
