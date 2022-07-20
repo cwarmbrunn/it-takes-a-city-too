@@ -78,7 +78,7 @@ function App() {
                 <Route path="" element={<Profile />} />
               </Route>
               <Route path="/post/:id" element={<SinglePost />} />
-              <Route path="/edit-post" element={<EditPage />} />
+              <Route path="/editpost/:id" element={<EditPage />} />
               <Route path="/delete-post" element={<DeletePage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
