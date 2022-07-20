@@ -1,19 +1,25 @@
 // Import React
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 
 // Import useMutation
-import { useMutation } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 
 // Import UPDATE_POST from Mutations.js
+import { QUERY_ONE_POST } from "../utils/queries";
 import { UPDATE_POST } from "../utils/mutations";
 
 // Import Auth
 import Auth from "../utils/auth";
 
 const EditPage = () => {
+  const { id: postParam } = useParams();
+  const loggedIn = Auth.loggedIn();
+  const { loading, err, data } = useQuery(QUERY_ONE_POST, { variables: { id: postParam } });
+  const postData = data?.post;
+  console.log(postData);
 
   const [formState, setFormState] = useState({
-    _id: "",
     postText: "",
     locationName: "",
     address: "",
@@ -46,11 +52,50 @@ const EditPage = () => {
    try {
     const fixedState = removeEmpty(formState);
      const { data } = await updatePost({ variables: {...fixedState }});
-     window.location.assign("/edit-post");
+     window.location.assign("/profile");
     } catch (e) {
      console.log(e);
    }
  };
+
+
+  if (loading) {
+    return <div>Loading...hang tight!</div>;
+  }
+
+    // If the post doesn't exiat, display the following content
+    if (!postData) {
+      return (
+        <main>
+          <div className="flex-row justify-space-between">
+            {loggedIn ? <div className="col-12 mb-3">Hello {Auth.getProfile().data.username} </div> : <div className="col-12 mb-3">Hello Guest </div>}
+            <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
+              <h1 className="text-decoration-underline">Post Not Found!</h1>
+              <div className="card mb-3">
+                <p className="card-header">That post does not exist.</p>
+                <p className="text-xl card-body">
+                  Sorry, you're looking for something that ain't here! {" "}
+                </p>
+              </div>
+            </div>
+            <div className="py-5 posts">{/* Posts to go here? */}</div>
+          </div>
+        </main>
+      );
+    }
+
+    if (postData) {
+      console.log(postData);
+      // setFormState({
+      //   postText: postData.postText,
+      //   locationName: postData.locationName,
+      //   address: postData.address,
+      //   city: postData.city,
+      //   state: postData.state,
+      //   zipCode: postData.zipCode,
+      //   tags: postData.tags[0],
+      // });
+    }
 
  return (
     <main className="flex-row justify-center mb-4">
@@ -59,17 +104,6 @@ const EditPage = () => {
           <h4 className="card-header">Edit Post</h4>
           <div className="card-body">
             <form onSubmit={handlePostItem}>
-            {/* Form Input - Enter post ID */}
-            <input
-              className="form-input"
-              placeholder="Enter Post ID"
-              name="_id"
-              type="text"
-              id="_id"
-              value={formState.name}
-              onChange={handleChange}
-              required
-            />
             {/* Form Input - Enter Location Name */}
             <input
               className="form-input"
@@ -77,7 +111,7 @@ const EditPage = () => {
               name="locationName"
               type="text"
               id="locationName"
-              value={formState.locationName}
+              value={postData.locationName}
               onChange={handleChange}
             />
             {/* Form Input - Enter Username for Post */}
@@ -87,7 +121,7 @@ const EditPage = () => {
               name="postText"
               type="text"
               id="postBody"
-              value={formState.postText}
+              value={postData.postText}
               onChange={handleChange}
             />
             {/* Form Input - Enter Location Address */}
@@ -97,7 +131,7 @@ const EditPage = () => {
               name="address"
               type="text"
               id="locationAddress"
-              value={formState.address}
+              value={postData.address}
               onChange={handleChange}
             />
             {/* Form Input - City */}
@@ -107,7 +141,7 @@ const EditPage = () => {
               name="city"
               type="text"
               id="city"
-              value={formState.city}
+              value={postData.city}
               onChange={handleChange}
             ></input>
             {/* Form Input - State */}
@@ -117,7 +151,7 @@ const EditPage = () => {
               name="state"
               type="text"
               id="state"
-              value={formState.state}
+              value={postData.state}
               onChange={handleChange}
             ></input>
             {/* Form Input - Add Zip Code */}
@@ -127,7 +161,7 @@ const EditPage = () => {
               name="zipCode"
               type="number"
               id="zipCode"
-              value={formState.zipCode}
+              value={postData.zipCode}
               onChange={handleChange}
             ></input>
             {/* Form Input - Enter Tags */}
@@ -137,7 +171,7 @@ const EditPage = () => {
               className="form-input"
               id="tags"
               required
-              value={formState.tags}
+              value={postData.tags[0]}
               onChange={handleChange}
             >
               <option disabled selected value>

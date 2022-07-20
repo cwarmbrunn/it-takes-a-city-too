@@ -37,16 +37,7 @@ const Header = () => {
                     to="/profile"
                     className="nav-links text-decoration-none text-light p-2"
                   >
-                    <li className="nav-item"> Profile</li>
-                  </NavLink>
-
-                  {/* Edit Post */}
-                  {/* Allows the logged in user to edit a post  */}
-                  <NavLink
-                    to="/edit-post"
-                    className="nav-links text-decoration-none text-light p-2"
-                  >
-                    <li className="nav-item">Edit Post</li>
+                    <li className="nav-item">{Auth.getProfile().data.username}'s Profile</li>
                   </NavLink>
 
                   {/* Delete Post */}
