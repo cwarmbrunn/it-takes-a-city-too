@@ -17,7 +17,7 @@ const EditPage = () => {
   const loggedIn = Auth.loggedIn();
   const { loading, err, data } = useQuery(QUERY_ONE_POST, { variables: { id: postParam } });
   const postData = data?.post;
-  console.log(postData);
+  // console.log(postData);
 
   const [formState, setFormState] = useState({
     postText: "",
@@ -35,6 +35,8 @@ const EditPage = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
+    console.log(name, value);
+
     setFormState({
       ...formState,
       [name]: value,
@@ -42,7 +44,7 @@ const EditPage = () => {
   };
 
   function removeEmpty(obj) {
-    return Object.fromEntries(Object.entries(obj).filter(([_, v]) => (v != null || v != "" || v != undefined)));
+    return Object.fromEntries(Object.entries(obj).filter(([_, v]) => (v !== null || v !== "" || v !== undefined)));
   }
 
   // Submit Post
@@ -53,6 +55,7 @@ const EditPage = () => {
     const fixedState = removeEmpty(formState);
      const { data } = await updatePost({ variables: {...fixedState }});
      window.location.assign("/profile");
+     console.log(data);
     } catch (e) {
      console.log(e);
    }
@@ -85,7 +88,7 @@ const EditPage = () => {
     }
 
     if (postData) {
-      console.log(postData);
+      // console.log(postData);
       // setFormState({
       //   postText: postData.postText,
       //   locationName: postData.locationName,
@@ -174,7 +177,7 @@ const EditPage = () => {
               value={postData.tags[0]}
               onChange={handleChange}
             >
-              <option disabled selected value>
+              <option disabled defaultValue>
                 -- Select an Option --
               </option>
               <option value="Shelter">Shelter</option>

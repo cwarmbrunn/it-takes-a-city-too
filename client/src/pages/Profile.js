@@ -70,10 +70,7 @@ const Profile = (props) => {
       <main>
         <div className="flex-row justify-space-between">
           {loggedIn ? <div className="col-12 mb-3">Hello {Auth.getProfile().data.username} </div> : <div className="col-12 mb-3">Hello Guest </div>}
-          <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
-            <PostPage />
-          </div>
-          <div className="py-5 posts">{/* Posts to go here? */}</div>
+          {!data.user ? <><div className="bg-white p-4 rounded overflow-hidden shadow-lg"> <PostPage /> </div> <div className="py-5 posts">{/* Posts to go here? */}</div></> :  ' ' }
         </div>
       </main>
 
